@@ -21,3 +21,4 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 |---|---|---|
 | [Two Sum: From O(n²) to O(n) With One Idea](two-sum/) | Coding interview | [▶ video](https://youtu.be/57y6uCLqk-k) |
 | [Inside HTTPS: TLS 1.3 Handshake and Trust Chains](https-explained/) | System design | soon |
+| [Sliding Window: Longest Substring Without Repeats](longest-substring/) | Coding interview | soon |
