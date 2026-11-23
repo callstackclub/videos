@@ -19,8 +19,8 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 <!-- index -->
 | Video | Type | Watch |
 |---|---|---|
-| [Two Sum: From O(n²) to O(n) With One Idea](two-sum/) | Coding interview | [▶ video](https://youtu.be/AyTCCrPcpr0) |
+| [Two Sum: From O(n²) to O(n) With One Idea](two-sum/) | Coding interview | [▶ video](https://youtu.be/gDS5Hg0RQw4) |
 | [Inside HTTPS: TLS 1.3 Handshake and Trust Chains](https-explained/) | System design | soon |
-| [Sliding Window: Longest Substring Without Repeats](longest-substring/) | Coding interview | soon |
+| [Sliding Window: Longest Substring Without Repeats](longest-substring/) | Coding interview | [▶ video](https://youtu.be/yjSlDEMTX10) |
 | [What Really Happens When You Hit Enter on a URL](type-a-url/) | System design | soon |
 | [Binary Search and the Off-by-One Bugs Everyone Makes](binary-search/) | Coding interview | soon |
