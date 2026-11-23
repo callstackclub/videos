@@ -1,6 +1,6 @@
 # Two Sum: From O(n²) to O(n) With One Idea
 
-▶ **Watch:** https://youtu.be/hbylxWSeY8M
+▶ **Watch:** https://youtu.be/AyTCCrPcpr0
 
 ## Problem
 
