@@ -2,7 +2,7 @@
 
 Coding interviews and system design, animated step by step. Here is the code behind every video on **[youtube.com/@callstackclub](https://www.youtube.com/@callstackclub)**.
 
-Every algorithm folder has the exact solution shown on screen, plus the tests that run it. The algorithm animations in those videos are recorded from this code running.
+Every algorithm folder has the solution from the video, plus the tests that run it. The animations in those videos step through the same algorithm.
 
 ## How to use
 ```bash
