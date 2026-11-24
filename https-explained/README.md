@@ -1,6 +1,6 @@
 # Inside HTTPS: TLS 1.3 Handshake and Trust Chains
 
-▶ **Watch:** https://youtu.be/fyAbTJV2niM
+▶ **Watch:** video coming soon on [Call Stack Club](https://www.youtube.com/@callstackclub)
 
 ## In the video
 
