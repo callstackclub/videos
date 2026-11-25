@@ -1,6 +1,6 @@
 # Binary Search and Two Common Off-by-One Bugs
 
-▶ **Watch:** https://youtu.be/mDsc287Vjus
+▶ **Watch:** https://youtu.be/CaHgM9cU7V8
 
 ## Problem
 

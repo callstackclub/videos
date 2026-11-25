@@ -1,6 +1,6 @@
 # Sliding Window: Longest Substring Without Repeats
 
-▶ **Watch:** https://youtu.be/W-DDON1r8eg
+▶ **Watch:** https://youtu.be/KYHpJjKupAk
 
 ## Problem
 

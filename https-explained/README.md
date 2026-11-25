@@ -1,6 +1,6 @@
 # Inside HTTPS: TLS 1.3 Handshake and Trust Chains
 
-▶ **Watch:** https://youtu.be/B72IChtaLQk
+▶ **Watch:** https://youtu.be/LSgT7QlCIXM
 
 ## In the video
 
