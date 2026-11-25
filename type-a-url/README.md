@@ -1,6 +1,6 @@
 # What Really Happens When You Hit Enter on a URL
 
-▶ **Watch:** https://youtu.be/djfEwqiGDcc
+▶ **Watch:** https://youtu.be/kfNqKqE9a6c
 
 ## In the video
 

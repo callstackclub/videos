@@ -22,5 +22,5 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 | [Two Sum: From O(n²) to O(n) With One Idea](two-sum/) | Coding interview | [▶ video](https://youtu.be/kRDSkp8Kevo) |
 | [Inside HTTPS: TLS 1.3 Handshake and Trust Chains](https-explained/) | System design | [▶ video](https://youtu.be/LSgT7QlCIXM) |
 | [Sliding Window: Longest Substring Without Repeats](longest-substring/) | Coding interview | [▶ video](https://youtu.be/KYHpJjKupAk) |
-| [What Really Happens When You Hit Enter on a URL](type-a-url/) | System design | [▶ video](https://youtu.be/djfEwqiGDcc) |
+| [What Really Happens When You Hit Enter on a URL](type-a-url/) | System design | [▶ video](https://youtu.be/kfNqKqE9a6c) |
 | [Binary Search and Two Common Off-by-One Bugs](binary-search/) | Coding interview | [▶ video](https://youtu.be/CaHgM9cU7V8) |
