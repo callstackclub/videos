@@ -1,6 +1,6 @@
 # What Really Happens When You Hit Enter on a URL
 
-▶ **Watch:** video coming soon on [Call Stack Club](https://www.youtube.com/@callstackclub)
+▶ **Watch:** https://youtu.be/djfEwqiGDcc
 
 ## In the video
 

@@ -1,6 +1,6 @@
 # Two Sum: From O(n²) to O(n) With One Idea
 
-▶ **Watch:** https://youtu.be/2jECmrxsb1g
+▶ **Watch:** https://youtu.be/pp4mlr8pEmg
 
 ## Problem
 
@@ -8,7 +8,7 @@ Given a list of integers and a target, return the indices of two different eleme
 
 ## In the video
 
-1. The question everyone gets
+1. A classic question
 2. The problem
 3. Brute force
 4. The complement trick

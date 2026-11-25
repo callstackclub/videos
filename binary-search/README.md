@@ -1,6 +1,6 @@
 # Binary Search and Two Common Off-by-One Bugs
 
-▶ **Watch:** video coming soon on [Call Stack Club](https://www.youtube.com/@callstackclub)
+▶ **Watch:** https://youtu.be/mDsc287Vjus
 
 ## Problem
 

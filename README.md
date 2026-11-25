@@ -19,8 +19,8 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 <!-- index -->
 | Video | Type | Watch |
 |---|---|---|
-| [Two Sum: From O(n²) to O(n) With One Idea](two-sum/) | Coding interview | [▶ video](https://youtu.be/2jECmrxsb1g) |
-| [Inside HTTPS: TLS 1.3 Handshake and Trust Chains](https-explained/) | System design | soon |
-| [Sliding Window: Longest Substring Without Repeats](longest-substring/) | Coding interview | [▶ video](https://youtu.be/s3-IPLs8nRg) |
-| [What Really Happens When You Hit Enter on a URL](type-a-url/) | System design | soon |
-| [Binary Search and Two Common Off-by-One Bugs](binary-search/) | Coding interview | soon |
+| [Two Sum: From O(n²) to O(n) With One Idea](two-sum/) | Coding interview | [▶ video](https://youtu.be/pp4mlr8pEmg) |
+| [Inside HTTPS: TLS 1.3 Handshake and Trust Chains](https-explained/) | System design | [▶ video](https://youtu.be/B72IChtaLQk) |
+| [Sliding Window: Longest Substring Without Repeats](longest-substring/) | Coding interview | [▶ video](https://youtu.be/W-DDON1r8eg) |
+| [What Really Happens When You Hit Enter on a URL](type-a-url/) | System design | [▶ video](https://youtu.be/djfEwqiGDcc) |
+| [Binary Search and Two Common Off-by-One Bugs](binary-search/) | Coding interview | [▶ video](https://youtu.be/mDsc287Vjus) |
