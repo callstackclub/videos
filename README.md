@@ -24,3 +24,5 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 | [Sliding Window: Longest Substring Without Repeats](longest-substring/) | Coding interview | [▶ video](https://youtu.be/KYHpJjKupAk) |
 | [What Really Happens When You Hit Enter on a URL](type-a-url/) | System design | [▶ video](https://youtu.be/kfNqKqE9a6c) |
 | [Binary Search and Two Common Off-by-One Bugs](binary-search/) | Coding interview | [▶ video](https://youtu.be/CaHgM9cU7V8) |
+| [Number of Islands: BFS vs DFS, Step by Step](number-of-islands/) | Coding interview | [▶ video](https://youtu.be/p1UPXvmwOKc) |
+| [Scaling an App From 1 to 1 Million Users, Step by Step](scale-to-1m/) | System design | [▶ video](https://youtu.be/dht9TtQvCHU) |
