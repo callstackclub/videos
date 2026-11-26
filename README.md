@@ -26,3 +26,7 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 | [Binary Search and Two Common Off-by-One Bugs](binary-search/) | Coding interview | [▶ video](https://youtu.be/CaHgM9cU7V8) |
 | [Number of Islands: BFS vs DFS, Step by Step](number-of-islands/) | Coding interview | [▶ video](https://youtu.be/p1UPXvmwOKc) |
 | [Scaling an App From 1 to 1 Million Users, Step by Step](scale-to-1m/) | System design | [▶ video](https://youtu.be/dht9TtQvCHU) |
+| [Python for Beginners #1: Variables and Types](python-beginner-1-basics/) | Tutorial | [▶ video](https://youtu.be/O2mn8UwfahA) |
+| [Python for Beginners #2: Loops and Lists](python-beginner-2-lists-loops/) | Tutorial | [▶ video](https://youtu.be/qM1g-UIiDGE) |
+| [Python for Beginners #3: Functions and Errors](python-beginner-3-functions/) | Tutorial | [▶ video](https://youtu.be/gP8WcAm88F8) |
+| [Python for Beginners #4: 10 Tips and Tricks](python-beginner-4-tips/) | Tutorial | [▶ video](https://youtu.be/QAgK55hbr5k) |
