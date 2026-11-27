@@ -30,3 +30,7 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 | [Python for Beginners #2: Loops and Lists](python-beginner-2-lists-loops/) | Tutorial | [▶ video](https://youtu.be/qM1g-UIiDGE) |
 | [Python for Beginners #3: Functions and Errors](python-beginner-3-functions/) | Tutorial | [▶ video](https://youtu.be/gP8WcAm88F8) |
 | [Python for Beginners #4: 10 Tips and Tricks](python-beginner-4-tips/) | Tutorial | [▶ video](https://youtu.be/QAgK55hbr5k) |
+| [Python names, objects and the mutable default trap](python-mutable-defaults/) | Tutorial | [▶ video](https://youtu.be/TB62cQb0_B8) |
+| [Python generators: lazy values with yield](python-generators/) | Tutorial | [▶ video](https://youtu.be/V1Zi-sPQ4sY) |
+| [Python decorators, built step by step](python-decorators/) | Tutorial | [▶ video](https://youtu.be/12x2Ku8-syE) |
+| [Python context managers: what with really does](python-context-managers/) | Tutorial | [▶ video](https://youtu.be/1me1IpYW7zQ) |
