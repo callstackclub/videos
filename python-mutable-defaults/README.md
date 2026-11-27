@@ -1,6 +1,6 @@
 # Python names, objects and the mutable default trap
 
-▶ **Watch:** https://youtu.be/TB62cQb0_B8
+▶ **Watch:** https://youtu.be/iRSUU8Vwl_0
 
 ## In the video
 

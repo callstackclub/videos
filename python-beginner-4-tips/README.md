@@ -1,6 +1,6 @@
 # Python for Beginners #4: 10 Tips and Tricks
 
-▶ **Watch:** https://youtu.be/QAgK55hbr5k
+▶ **Watch:** https://youtu.be/mi_K8q-elZQ
 
 ## In the video
 

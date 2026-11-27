@@ -27,10 +27,10 @@ Spot a bug or have a better solution? Open an issue or a pull request. If it's g
 | [Number of Islands: BFS vs DFS, Step by Step](number-of-islands/) | Coding interview | [▶ video](https://youtu.be/p1UPXvmwOKc) |
 | [Scaling an App From 1 to 1 Million Users, Step by Step](scale-to-1m/) | System design | [▶ video](https://youtu.be/dht9TtQvCHU) |
 | [Python for Beginners #1: Variables and Types](python-beginner-1-basics/) | Tutorial | [▶ video](https://youtu.be/O2mn8UwfahA) |
-| [Python for Beginners #2: Loops and Lists](python-beginner-2-lists-loops/) | Tutorial | [▶ video](https://youtu.be/qM1g-UIiDGE) |
+| [Python for Beginners #2: Loops and Lists](python-beginner-2-lists-loops/) | Tutorial | [▶ video](https://youtu.be/6hiO5DmX_58) |
 | [Python for Beginners #3: Functions and Errors](python-beginner-3-functions/) | Tutorial | [▶ video](https://youtu.be/gP8WcAm88F8) |
-| [Python for Beginners #4: 10 Tips and Tricks](python-beginner-4-tips/) | Tutorial | [▶ video](https://youtu.be/QAgK55hbr5k) |
-| [Python names, objects and the mutable default trap](python-mutable-defaults/) | Tutorial | [▶ video](https://youtu.be/TB62cQb0_B8) |
+| [Python for Beginners #4: 10 Tips and Tricks](python-beginner-4-tips/) | Tutorial | [▶ video](https://youtu.be/mi_K8q-elZQ) |
+| [Python names, objects and the mutable default trap](python-mutable-defaults/) | Tutorial | [▶ video](https://youtu.be/iRSUU8Vwl_0) |
 | [Python generators: lazy values with yield](python-generators/) | Tutorial | [▶ video](https://youtu.be/V1Zi-sPQ4sY) |
 | [Python decorators, built step by step](python-decorators/) | Tutorial | [▶ video](https://youtu.be/12x2Ku8-syE) |
 | [Python context managers: what with really does](python-context-managers/) | Tutorial | [▶ video](https://youtu.be/1me1IpYW7zQ) |

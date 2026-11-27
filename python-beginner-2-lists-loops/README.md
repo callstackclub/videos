@@ -1,6 +1,6 @@
 # Python for Beginners #2: Loops and Lists
 
-▶ **Watch:** https://youtu.be/qM1g-UIiDGE
+▶ **Watch:** https://youtu.be/6hiO5DmX_58
 
 ## In the video
 
