@@ -1,23 +1,25 @@
 # Call Stack Club app: privacy policy
 
-_Last updated: 28 November 2026_
+_Last updated: 28 November 2026 (embedded player data described)_
 
 The Call Stack Club app (Android, package `com.callstackclub.app`) shows the lessons from the
 [Call Stack Club YouTube channel](https://www.youtube.com/@callstackclub) together with their chapters and example code.
 
 ## What the app collects
 
-**Nothing.** The app has no accounts, no sign-in, no analytics, no advertising SDK and no tracking.
-It does not ask for any personal information, contacts, location, camera, microphone or files.
+The app's own code collects **nothing about you**: no accounts, no sign-in, no analytics, no advertising SDK and
+no tracking. It does not ask for contacts, location, camera, microphone or files.
 
 ## What the app connects to
 
 - **GitHub** (`raw.githubusercontent.com`): to download the public lesson list from this repository
   ([catalog/public.json](catalog/public.json)). The app keeps the last copy on your device so it works offline.
-- **YouTube** (`youtube.com`, `i.ytimg.com`): videos play in YouTube's own embedded player, and lesson
-  thumbnails come from YouTube. When you watch a video, YouTube and Google handle that request under their own terms.
+- **YouTube** (`youtube.com`, `i.ytimg.com`): lesson thumbnails come from YouTube, and videos play in YouTube's
+  own embedded player. When you play a video, the player sends YouTube your **playback activity** (which video,
+  how long you watch) and **device or browser identifiers** such as cookies, which YouTube uses to run the player,
+  measure views and show its own ads. We don't receive or store that data.
 
-As with any internet request, these services receive your device's IP address and basic request information.
+As with any internet request, these services also receive your device's IP address and basic request information.
 
 ## YouTube
 
