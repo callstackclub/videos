@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-11-28T07:50:31Z",
+ "generated": "2026-11-28T08:44:11Z",
  "channel": {
   "handle": "@callstackclub",
   "url": "https://www.youtube.com/@callstackclub",
@@ -14,6 +14,14 @@
     "ms": "Python"
    },
    "order": 0
+  },
+  {
+   "id": "linux",
+   "title": {
+    "en": "Linux",
+    "ms": "Linux"
+   },
+   "order": 1
   },
   {
    "id": "algo",
@@ -415,6 +423,565 @@
    ],
    "code": [],
    "repo": "https://github.com/callstackclub/videos/tree/main/scale-to-1m",
+   "position": 3
+  },
+  {
+   "id": "linux-beginner-2-text",
+   "youtubeId": "WQ0NiljnTBI",
+   "series": "linux",
+   "level": "beginner",
+   "episode": 2,
+   "release": "2026-11-28T08:01:40Z",
+   "title": {
+    "en": "Linux for Beginners #2: Read and Search Text",
+    "ms": "Linux untuk Pemula #2: Baca dan Cari Teks"
+   },
+   "summary": {
+    "en": "Rosa runs a tiny bakery that exists only on this screen. She slides a file across the counter, called till dot log, and asks six questions about it.",
+    "ms": "Rosa mengusahakan sebuah kedai roti kecil yang hanya wujud di skrin ini. Dia menolak satu fail di atas kaunter, bernama till dot log, dan bertanya 6 soalan tentangnya."
+   },
+   "durationSec": 559,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The owner hands over a file",
+     "ms": "Pemilik kedai menyerahkan sebuah fail"
+    },
+    {
+     "t": 74,
+     "en": "Question one: how did the week begin and end?",
+     "ms": "Soalan 1: bagaimana minggu itu bermula dan berakhir?"
+    },
+    {
+     "t": 124,
+     "en": "Question two: who bought buns?",
+     "ms": "Soalan 2: siapa beli roti?"
+    },
+    {
+     "t": 214,
+     "en": "Question three: cheapest and dearest?",
+     "ms": "Soalan 3: paling murah dan paling mahal?"
+    },
+    {
+     "t": 300,
+     "en": "Question four: how many of each?",
+     "ms": "Soalan 4: berapa banyak setiap satu?"
+    },
+    {
+     "t": 353,
+     "en": "Question five: write it down",
+     "ms": "Soalan 5: tuliskannya"
+    },
+    {
+     "t": 413,
+     "en": "Question six: what sells best?",
+     "ms": "Soalan 6: apa paling laris?"
+    }
+   ],
+   "code": [
+    {
+     "title": "The whole log",
+     "lang": "bash",
+     "code": "printf '%s\\n' mon,bun,3 mon,pie,12 mon,tea,2 > till.log\nprintf '%s\\n' tue,Bun,3 tue,cake,20 >> till.log\nprintf '%s\\n' wed,bun,3 wed,tea,2 wed,tea,2 >> till.log\ncat till.log",
+     "output": "mon,bun,3\nmon,pie,12\nmon,tea,2\ntue,Bun,3\ntue,cake,20\nwed,bun,3\nwed,tea,2\nwed,tea,2",
+     "exit": 0
+    },
+    {
+     "title": "First, last, how many",
+     "lang": "bash",
+     "code": "printf '%s\\n' mon,bun,3 mon,pie,12 mon,tea,2 > till.log\nprintf '%s\\n' tue,Bun,3 tue,cake,20 >> till.log\nprintf '%s\\n' wed,bun,3 wed,tea,2 wed,tea,2 >> till.log\nhead -n 1 till.log\ntail -n 2 till.log\nwc -l till.log",
+     "output": "mon,bun,3\nwed,tea,2\nwed,tea,2\n8 till.log",
+     "exit": 0
+    },
+    {
+     "title": "Looking for buns",
+     "lang": "bash",
+     "code": "printf '%s\\n' mon,bun,3 mon,pie,12 mon,tea,2 > till.log\nprintf '%s\\n' tue,Bun,3 tue,cake,20 >> till.log\nprintf '%s\\n' wed,bun,3 wed,tea,2 wed,tea,2 >> till.log\ngrep bun till.log\necho \"with line numbers\"\ngrep -n bun till.log",
+     "output": "mon,bun,3\nwed,bun,3\nwith line numbers\n1:mon,bun,3\n6:wed,bun,3",
+     "exit": 0
+    },
+    {
+     "title": "Any case, and a count",
+     "lang": "bash",
+     "code": "printf '%s\\n' mon,bun,3 mon,pie,12 mon,tea,2 > till.log\nprintf '%s\\n' tue,Bun,3 tue,cake,20 >> till.log\nprintf '%s\\n' wed,bun,3 wed,tea,2 wed,tea,2 >> till.log\ngrep -i bun till.log\ngrep -c bun till.log\ngrep -c -i bun till.log",
+     "output": "mon,bun,3\ntue,Bun,3\nwed,bun,3\n2\n3",
+     "exit": 0
+    },
+    {
+     "title": "Only the prices",
+     "lang": "bash",
+     "code": "printf '%s\\n' mon,bun,3 mon,pie,12 mon,tea,2 > till.log\nprintf '%s\\n' tue,Bun,3 tue,cake,20 >> till.log\nprintf '%s\\n' wed,bun,3 wed,tea,2 wed,tea,2 >> till.log\ncut -d , -f 3 till.log",
+     "output": "3\n12\n2\n3\n20\n3\n2\n2",
+     "exit": 0
+    },
+    {
+     "title": "Sort the prices",
+     "lang": "bash",
+     "code": "printf '%s\\n' 3 12 2 20 > prices.txt\nsort prices.txt",
+     "output": "12\n2\n20\n3",
+     "exit": 0
+    },
+    {
+     "title": "Sort them as numbers",
+     "lang": "bash",
+     "code": "printf '%s\\n' 3 12 2 20 > prices.txt\nsort -n prices.txt\necho \"dearest first\"\nsort -n -r prices.txt",
+     "output": "2\n3\n12\n20\ndearest first\n20\n12\n3\n2",
+     "exit": 0
+    },
+    {
+     "title": "Counting too early",
+     "lang": "bash",
+     "code": "printf '%s\\n' bun tea bun tea tea > items.txt\necho \"uniq -c on its own\"\nuniq -c items.txt\necho \"after sort\"\nsort items.txt | uniq -c",
+     "output": "uniq -c on its own\n      1 bun\n      1 tea\n      1 bun\n      2 tea\nafter sort\n      2 bun\n      3 tea",
+     "exit": 0
+    },
+    {
+     "title": "Write, add, read",
+     "lang": "bash",
+     "code": "echo \"Monday: 3 sales\" > report.txt\necho \"Tuesday: 2 sales\" > report.txt\ncat report.txt\necho \"---\"\necho \"Wednesday: 3 sales\" >> report.txt\ncat report.txt\nwc -l < report.txt",
+     "output": "Tuesday: 2 sales\n---\nTuesday: 2 sales\nWednesday: 3 sales\n2",
+     "exit": 0
+    },
+    {
+     "title": "One file on both sides",
+     "lang": "bash",
+     "code": "printf '%s\\n' tea bun cake > items.txt\nsort items.txt > items.txt\nwc -l items.txt",
+     "output": "0 items.txt",
+     "exit": 0
+    },
+    {
+     "title": "A new name for the result",
+     "lang": "bash",
+     "code": "printf '%s\\n' tea bun cake > items.txt\nsort items.txt > sorted.txt\ncat sorted.txt\nwc -l < items.txt",
+     "output": "bun\ncake\ntea\n3",
+     "exit": 0
+    },
+    {
+     "title": "Best seller",
+     "lang": "bash",
+     "code": "printf '%s\\n' mon,bun,3 mon,pie,12 mon,tea,2 > till.log\nprintf '%s\\n' tue,Bun,3 tue,cake,20 >> till.log\nprintf '%s\\n' wed,bun,3 wed,tea,2 wed,tea,2 >> till.log\necho \"best seller\"\ncut -d , -f 2 till.log | sort | uniq -c |\n  sort -nr | head -n 1",
+     "output": "best seller\n      3 tea",
+     "exit": 0
+    },
+    {
+     "title": "Buns and Buns together",
+     "lang": "bash",
+     "code": "printf '%s\\n' mon,bun,3 mon,pie,12 mon,tea,2 > till.log\nprintf '%s\\n' tue,Bun,3 tue,cake,20 >> till.log\nprintf '%s\\n' wed,bun,3 wed,tea,2 wed,tea,2 >> till.log\necho \"ignoring case\"\ncut -d , -f 2 till.log | sort -f | uniq -c -i |\n  sort -nr",
+     "output": "ignoring case\n      3 tea\n      3 Bun\n      1 pie\n      1 cake",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/linux-beginner-2-text",
+   "position": 1
+  },
+  {
+   "id": "linux-beginner-3-scripts",
+   "youtubeId": "Q4BiPX86v_s",
+   "series": "linux",
+   "level": "beginner",
+   "episode": 3,
+   "release": "2026-11-28T08:04:01Z",
+   "title": {
+    "en": "Linux for Beginners #3: Your First Bash Script",
+    "ms": "Linux untuk Pemula #3: Bash Script Pertama Anda"
+   },
+   "summary": {
+    "en": "Meet Mia, who's fictional, and her chore, which is painfully familiar. Every Friday she types the same commands to copy her notes into a backup folder.",
+    "ms": "Kenali Mia, watak rekaan, dan kerja rutinnya, yang sangat biasa bagi kita. Setiap Jumaat dia menaip command yang sama untuk menyalin nota-notanya ke dalam folder backup."
+   },
+   "durationSec": 626,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The chore",
+     "ms": "Kerja rutin itu"
+    },
+    {
+     "t": 45,
+     "en": "Version 1: stop retyping",
+     "ms": "Versi 1: berhenti menaip semula"
+    },
+    {
+     "t": 74,
+     "en": "Version 2: a real command",
+     "ms": "Versi 2: command sebenar"
+    },
+    {
+     "t": 218,
+     "en": "Version 3: say it once",
+     "ms": "Versi 3: sebut sekali sahaja"
+    },
+    {
+     "t": 345,
+     "en": "Version 4: any files",
+     "ms": "Versi 4: sebarang fail"
+    },
+    {
+     "t": 372,
+     "en": "Version 5: stop lying",
+     "ms": "Versi 5: berhenti berbohong"
+    },
+    {
+     "t": 485,
+     "en": "Version 6: all of it",
+     "ms": "Versi 6: semuanya"
+    }
+   ],
+   "code": [
+    {
+     "title": "Version 1: the typed commands, saved",
+     "lang": "bash",
+     "code": "touch plans.txt shopping.txt\ncat > backup.sh <<'EOF'\nmkdir -p backup\ncp plans.txt shopping.txt backup\necho \"backup done\"\nEOF\nbash backup.sh\nls -1 backup",
+     "output": "backup done\nplans.txt\nshopping.txt",
+     "exit": 0
+    },
+    {
+     "title": "Version 2: a program of its own",
+     "lang": "bash",
+     "code": "touch plans.txt shopping.txt\ncat > backup.sh <<'EOF'\n#!/bin/bash\nmkdir -p backup\ncp plans.txt shopping.txt backup\necho \"backup done\"\nEOF\n./backup.sh\nchmod +x backup.sh\n./backup.sh",
+     "output": "bash: line 8: ./backup.sh: Permission denied\nbackup done",
+     "exit": 0
+    },
+    {
+     "title": "Without the dot and slash",
+     "lang": "bash",
+     "code": "cat > backup.sh <<'EOF'\n#!/bin/bash\necho \"backup done\"\nEOF\nchmod +x backup.sh\nbackup.sh",
+     "output": "bash: line 6: backup.sh: command not found",
+     "exit": 127
+    },
+    {
+     "title": "What is in PATH?",
+     "lang": "bash",
+     "code": "echo \"$HOME\"\necho \"$PATH\" | tr ':' '\\n' | wc -l\ncommand -v ls",
+     "output": "/home/mia\n7\n/usr/bin/ls",
+     "exit": 0
+    },
+    {
+     "title": "Adding a folder to PATH",
+     "lang": "bash",
+     "code": "mkdir tools\nprintf '#!/bin/bash\\necho \"backup done\"\\n' > tools/bk\nchmod +x tools/bk\nPATH=\"$PATH:$PWD/tools\"\nbk",
+     "output": "backup done",
+     "exit": 0
+    },
+    {
+     "title": "Version 3: names for the folders",
+     "lang": "bash",
+     "code": "touch plans.txt shopping.txt\ncat > backup.sh <<'EOF'\n#!/bin/bash\nto=\"backup\"\nmkdir -p \"$to\"\ncp plans.txt shopping.txt \"$to\"\necho \"saved in $to\"\nEOF\nchmod +x backup.sh\n./backup.sh",
+     "output": "saved in backup",
+     "exit": 0
+    },
+    {
+     "title": "Double or single?",
+     "lang": "bash",
+     "code": "to=backup\necho \"saved in $to\"\necho 'saved in $to'",
+     "output": "saved in backup\nsaved in $to",
+     "exit": 0
+    },
+    {
+     "title": "Spaces around =",
+     "lang": "bash",
+     "code": "to = backup",
+     "output": "bash: line 1: to: command not found",
+     "exit": 127
+    },
+    {
+     "title": "A name with a space",
+     "lang": "bash",
+     "code": "file=\"my plans.txt\"\ntouch \"$file\"\nls \"$file\"\nls $file",
+     "output": "my plans.txt\nls: cannot access 'my': No such file or directory\nls: cannot access 'plans.txt': No such file or directory",
+     "exit": 2
+    },
+    {
+     "title": "Passing it on",
+     "lang": "bash",
+     "code": "owner=Mia\nbash -c 'echo \"owner: $owner\"'\nexport owner\nbash -c 'echo \"owner: $owner\"'",
+     "output": "owner: \nowner: Mia",
+     "exit": 0
+    },
+    {
+     "title": "Version 4: you choose the files",
+     "lang": "bash",
+     "code": "touch plans.txt \"my list.txt\"\ncat > backup.sh <<'EOF'\n#!/bin/bash\nmkdir -p backup\necho \"first: $1\"\necho \"second: $2\"\ncp \"$@\" backup\nEOF\nchmod +x backup.sh\n./backup.sh plans.txt \"my list.txt\"\nls -1 backup",
+     "output": "first: plans.txt\nsecond: my list.txt\nmy list.txt\nplans.txt",
+     "exit": 0
+    },
+    {
+     "title": "Version 4 with a wrong name",
+     "lang": "bash",
+     "code": "cat > backup.sh <<'EOF'\n#!/bin/bash\nmkdir -p backup\ncp \"$1\" backup\necho \"backup done\"\nEOF\nchmod +x backup.sh\n./backup.sh plnas.txt",
+     "output": "cp: cannot stat 'plnas.txt': No such file or directory\nbackup done",
+     "exit": 0
+    },
+    {
+     "title": "Exit status",
+     "lang": "bash",
+     "code": "touch plans.txt\n[ -f plans.txt ]\necho \"status: $?\"\n[ -f plnas.txt ]\necho \"status: $?\"",
+     "output": "status: 0\nstatus: 1",
+     "exit": 0
+    },
+    {
+     "title": "Version 5: check first",
+     "lang": "bash",
+     "code": "cat > backup.sh <<'EOF'\n#!/bin/bash\nif [ -f \"$1\" ]; then\n  mkdir -p backup\n  cp \"$1\" backup\n  echo \"saved $1\"\nelse\n  echo \"no such file: $1\"\n  exit 1\nfi\nEOF\nchmod +x backup.sh\n./backup.sh plnas.txt",
+     "output": "no such file: plnas.txt",
+     "exit": 1
+    },
+    {
+     "title": "if without spaces",
+     "lang": "bash",
+     "code": "touch plans.txt\nif [-f plans.txt]; then\n  echo \"found\"\nelse\n  echo \"not found\"\nfi",
+     "output": "bash: line 2: [-f: command not found\nnot found",
+     "exit": 0
+    },
+    {
+     "title": "Version 6: check every copy",
+     "lang": "bash",
+     "code": "touch plans.txt\ncat > backup.sh <<'EOF'\n#!/bin/bash\nsave() {\n  if cp \"$1\" backup; then\n    echo \"saved $1\"\n  else\n    echo \"NOT saved: $1\"; status=1\n  fi\n}\nstatus=0\nmkdir -p backup || exit 1\nfor file in \"$@\"; do save \"$file\"; done\nexit \"$status\"\nEOF\nchmod +x backup.sh\n./backup.sh plans.txt plnas.txt || echo \"not all\"",
+     "output": "saved plans.txt\ncp: cannot stat 'plnas.txt': No such file or directory\nNOT saved: plnas.txt\nnot all",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/linux-beginner-3-scripts",
+   "position": 2
+  },
+  {
+   "id": "linux-beginner-4-tips",
+   "youtubeId": "v-4t4TLWhek",
+   "series": "linux",
+   "level": "beginner",
+   "episode": 4,
+   "release": "2026-11-28T08:05:25Z",
+   "title": {
+    "en": "Linux for Beginners #4: 10 Command-Line Tips",
+    "ms": "Linux untuk Pemula #4: 10 Tips Command Line"
+   },
+   "summary": {
+    "en": "Ten tips, counted down from ten to one, and the last is the one that protects your files. Each tip gets the same fair treatment: how it looks before, how it looks after, and the moment when you should leave it alone.",
+    "ms": "10 tips, dikira mundur dari 10 hingga 1, dan yang terakhir ialah yang melindungi fail anda. Setiap tip mendapat layanan adil yang sama: rupanya sebelum, rupanya selepas, dan saat anda patut tidak menggunakannya."
+   },
+   "durationSec": 662,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Ten, nine, eight...",
+     "ms": "10, 9, 8..."
+    },
+    {
+     "t": 38,
+     "en": "Ten and nine: fewer names",
+     "ms": "10 dan 9: kurang menaip nama"
+    },
+    {
+     "t": 149,
+     "en": "Eight and seven: connecting commands",
+     "ms": "8 dan 7: menyambungkan command"
+    },
+    {
+     "t": 277,
+     "en": "Six and five: noise and repetition",
+     "ms": "6 dan 5: error dan ulangan"
+    },
+    {
+     "t": 385,
+     "en": "Four and three: files everywhere",
+     "ms": "4 dan 3: fail di merata tempat"
+    },
+    {
+     "t": 481,
+     "en": "Two: your fingers",
+     "ms": "2: jari anda"
+    },
+    {
+     "t": 514,
+     "en": "One: the quotes",
+     "ms": "1: tanda petik"
+    }
+   ],
+   "code": [
+    {
+     "title": "Naming every file",
+     "lang": "bash",
+     "code": "touch jan.txt feb.txt mar.txt notes.md\nls feb.txt jan.txt mar.txt",
+     "output": "feb.txt\njan.txt\nmar.txt",
+     "exit": 0
+    },
+    {
+     "title": "A wildcard",
+     "lang": "bash",
+     "code": "touch jan.txt feb.txt mar.txt notes.md\nls *.txt",
+     "output": "feb.txt\njan.txt\nmar.txt",
+     "exit": 0
+    },
+    {
+     "title": "Star and question mark",
+     "lang": "bash",
+     "code": "touch a1.txt a2.txt a10.txt\necho *.txt\necho a?.txt\necho *.jpg",
+     "output": "a1.txt a10.txt a2.txt\na1.txt a2.txt\n*.jpg",
+     "exit": 0
+    },
+    {
+     "title": "One at a time",
+     "lang": "bash",
+     "code": "mkdir day1\nmkdir day2\nmkdir day3\nls -1",
+     "output": "day1\nday2\nday3",
+     "exit": 0
+    },
+    {
+     "title": "Braces",
+     "lang": "bash",
+     "code": "mkdir day{1..3}\nls -1",
+     "output": "day1\nday2\nday3",
+     "exit": 0
+    },
+    {
+     "title": "Braces do not look for files",
+     "lang": "bash",
+     "code": "echo {tea,cake}.txt\necho {1..3}\necho *.txt",
+     "output": "tea.txt cake.txt\n1 2 3\n*.txt",
+     "exit": 0
+    },
+    {
+     "title": "Read it, then type it again",
+     "lang": "bash",
+     "code": "touch a.txt b.txt c.txt\nls *.txt | wc -l\necho \"there are 3 files\"",
+     "output": "3\nthere are 3 files",
+     "exit": 0
+    },
+    {
+     "title": "Command substitution",
+     "lang": "bash",
+     "code": "touch a.txt b.txt c.txt\ncount=$(ls *.txt | wc -l)\necho \"there are $count files\"",
+     "output": "there are 3 files",
+     "exit": 0
+    },
+    {
+     "title": "A line that doesn't care",
+     "lang": "bash",
+     "code": "cp plan.txt safe.txt; echo \"copied\"",
+     "output": "cp: cannot stat 'plan.txt': No such file or directory\ncopied",
+     "exit": 0
+    },
+    {
+     "title": "A line that checks",
+     "lang": "bash",
+     "code": "cp plan.txt safe.txt && echo \"copied\"",
+     "output": "cp: cannot stat 'plan.txt': No such file or directory",
+     "exit": 1
+    },
+    {
+     "title": "All three",
+     "lang": "bash",
+     "code": "mkdir box && echo \"made it\"\nmkdir box || echo \"already there\"\nfalse ; echo \"runs anyway\"",
+     "output": "made it\nmkdir: cannot create directory ‘box’: File exists\nalready there\nruns anyway",
+     "exit": 0
+    },
+    {
+     "title": "A fake if/else",
+     "lang": "bash",
+     "code": "true && false || echo \"surprise\"",
+     "output": "surprise",
+     "exit": 0
+    },
+    {
+     "title": "Only the output",
+     "lang": "bash",
+     "code": "touch real.txt\nls real.txt nope.txt > all.log\necho \"the log:\"\ncat all.log",
+     "output": "ls: cannot access 'nope.txt': No such file or directory\nthe log:\nreal.txt",
+     "exit": 0
+    },
+    {
+     "title": "Output and errors",
+     "lang": "bash",
+     "code": "touch real.txt\nls real.txt nope.txt > all.log 2>&1\necho \"the log:\"\ncat all.log",
+     "output": "the log:\nls: cannot access 'nope.txt': No such file or directory\nreal.txt",
+     "exit": 0
+    },
+    {
+     "title": "Thrown away",
+     "lang": "bash",
+     "code": "touch real.txt\nls real.txt nope.txt 2>/dev/null\necho \"status: $?\"",
+     "output": "real.txt\nstatus: 2",
+     "exit": 0
+    },
+    {
+     "title": "Three nearly equal lines",
+     "lang": "bash",
+     "code": "touch a.txt b.txt c.txt\nmv a.txt old-a.txt\nmv b.txt old-b.txt\nmv c.txt old-c.txt\nls -1",
+     "output": "old-a.txt\nold-b.txt\nold-c.txt",
+     "exit": 0
+    },
+    {
+     "title": "One line",
+     "lang": "bash",
+     "code": "touch a.txt b.txt c.txt\nfor f in *.txt; do mv \"$f\" \"old-$f\"; done\nls -1",
+     "output": "old-a.txt\nold-b.txt\nold-c.txt",
+     "exit": 0
+    },
+    {
+     "title": "Rehearse with echo",
+     "lang": "bash",
+     "code": "touch a.txt b.txt c.txt\nfor f in *.txt; do echo mv \"$f\" \"old-$f\"; done\nls -1",
+     "output": "mv a.txt old-a.txt\nmv b.txt old-b.txt\nmv c.txt old-c.txt\na.txt\nb.txt\nc.txt",
+     "exit": 0
+    },
+    {
+     "title": "Looking one folder at a time",
+     "lang": "bash",
+     "code": "mkdir -p docs/old\ntouch docs/a.txt docs/old/b.txt\nls docs\nls docs/old",
+     "output": "a.txt\nold\nb.txt",
+     "exit": 0
+    },
+    {
+     "title": "find looks in all of them",
+     "lang": "bash",
+     "code": "mkdir -p docs/old\ntouch docs/a.txt docs/old/b.txt\nfind docs -name '*.txt' | sort",
+     "output": "docs/a.txt\ndocs/old/b.txt",
+     "exit": 0
+    },
+    {
+     "title": "By hand",
+     "lang": "bash",
+     "code": "mkdir -p docs/old\necho tea > docs/a.txt\necho cake > docs/old/b.txt\ncat docs/a.txt docs/old/b.txt",
+     "output": "tea\ncake",
+     "exit": 0
+    },
+    {
+     "title": "xargs",
+     "lang": "bash",
+     "code": "mkdir -p docs/old\necho tea > docs/a.txt\necho cake > docs/old/b.txt\nfind docs -name '*.txt' -print0 |\n  sort -z | xargs -0 cat",
+     "output": "tea\ncake",
+     "exit": 0
+    },
+    {
+     "title": "No quotes",
+     "lang": "bash",
+     "code": "file=\"my list.txt\"\necho milk > \"$file\"\nwc -l $file",
+     "output": "wc: my: No such file or directory\nwc: list.txt: No such file or directory\n0 total",
+     "exit": 1
+    },
+    {
+     "title": "Quotes",
+     "lang": "bash",
+     "code": "file=\"my list.txt\"\necho milk > \"$file\"\nwc -l \"$file\"",
+     "output": "1 my list.txt",
+     "exit": 0
+    },
+    {
+     "title": "Quoting too much",
+     "lang": "bash",
+     "code": "touch a.txt b.txt\nls \"*.txt\"",
+     "output": "ls: cannot access '*.txt': No such file or directory",
+     "exit": 2
+    },
+    {
+     "title": "What a script really receives",
+     "lang": "bash",
+     "code": "file=\"my list.txt\"\necho rm $file\nfor part in $file; do echo \"[$part]\"; done\nfor part in \"$file\"; do echo \"[$part]\"; done",
+     "output": "rm my list.txt\n[my]\n[list.txt]\n[my list.txt]",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/linux-beginner-4-tips",
    "position": 3
   },
   {
