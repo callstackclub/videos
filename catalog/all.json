@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "generated": "2026-11-28T08:44:11Z",
+ "generated": "2026-11-28T09:48:04Z",
  "channel": {
   "handle": "@callstackclub",
   "url": "https://www.youtube.com/@callstackclub",
@@ -426,6 +426,143 @@
    "position": 3
   },
   {
+   "id": "linux-beginner-1-files",
+   "youtubeId": "B_2FyDuNzyk",
+   "series": "linux",
+   "level": "beginner",
+   "episode": 1,
+   "release": "2026-11-28T08:49:13Z",
+   "title": {
+    "en": "Linux for Beginners #1: Files and Folders",
+    "ms": "Linux untuk Pemula #1: Fail dan Folder"
+   },
+   "summary": {
+    "en": "Somewhere on a small island there's a file called gold. The island is a folder, its caves are folders too, and there's no mouse.",
+    "ms": "Di sebuah pulau kecil, ada satu fail bernama gold. Pulau itu sebuah folder, gua-guanya juga folder, dan tiada tetikus."
+   },
+   "durationSec": 587,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The island",
+     "ms": "Pulau itu"
+    },
+    {
+     "t": 109,
+     "en": "Clue one: look in the hut",
+     "ms": "Petunjuk 1: lihat di dalam pondok"
+    },
+    {
+     "t": 245,
+     "en": "Clue two: two maps",
+     "ms": "Petunjuk 2: dua peta"
+    },
+    {
+     "t": 326,
+     "en": "Clue three: a name that says where",
+     "ms": "Petunjuk 3: nama yang memberitahu di mana"
+    },
+    {
+     "t": 406,
+     "en": "The deep cave",
+     "ms": "Gua dalam"
+    },
+    {
+     "t": 455,
+     "en": "Leaving the island clean",
+     "ms": "Meninggalkan pulau dengan bersih"
+    }
+   ],
+   "code": [
+    {
+     "title": "Draw the island",
+     "lang": "bash",
+     "code": "mkdir island\nmkdir -p island/cave/deep island/hut\ntouch island/clue-1-look-in-the-hut\nls -1 island",
+     "output": "cave\nclue-1-look-in-the-hut\nhut",
+     "exit": 0
+    },
+    {
+     "title": "Without -p",
+     "lang": "bash",
+     "code": "mkdir cave/deep\nmkdir -p cave/deep\nls cave",
+     "output": "mkdir: cannot create directory ‘cave/deep’: No such file or directory\ndeep",
+     "exit": 0
+    },
+    {
+     "title": "Where are we?",
+     "lang": "bash",
+     "code": "mkdir -p island/cave/deep\npwd\ncd island/cave\npwd\ncd ..\npwd",
+     "output": "/home/mia/demo\n/home/mia/demo/island/cave\n/home/mia/demo/island",
+     "exit": 0
+    },
+    {
+     "title": "Home and back",
+     "lang": "bash",
+     "code": "mkdir -p island/hut\ncd island/hut\ncd ~\npwd\ncd -",
+     "output": "/home/mia\n/home/mia/demo/island/hut",
+     "exit": 0
+    },
+    {
+     "title": "Two ways to name the hut",
+     "lang": "bash",
+     "code": "mkdir -p island/hut\ntouch island/hut/clue-2-two-maps\nls island/hut\nls /home/mia/demo/island/hut\ncd island/hut\nls /home/mia/demo/island/hut\nls island/hut",
+     "output": "clue-2-two-maps\nclue-2-two-maps\nclue-2-two-maps\nls: cannot access 'island/hut': No such file or directory",
+     "exit": 2
+    },
+    {
+     "title": "Two maps",
+     "lang": "bash",
+     "code": "touch Map map\nls -1\nls MAP",
+     "output": "Map\nmap\nls: cannot access 'MAP': No such file or directory",
+     "exit": 2
+    },
+    {
+     "title": "Copy before you touch",
+     "lang": "bash",
+     "code": "mkdir hut\ntouch hut/Map\ncp hut/Map hut/Map-copy\ncp -r hut hut-backup\nls -1 hut-backup",
+     "output": "Map\nMap-copy",
+     "exit": 0
+    },
+    {
+     "title": "A folder without -r",
+     "lang": "bash",
+     "code": "mkdir hut\ntouch hut/Map\ncp hut hut-backup",
+     "output": "cp: -r not specified; omitting directory 'hut'",
+     "exit": 1
+    },
+    {
+     "title": "Rename, then move",
+     "lang": "bash",
+     "code": "mkdir hut bag\ntouch hut/Map\nmv hut/Map hut/clue-3-deep-cave\nls hut\nmv hut/clue-3-deep-cave bag\nls bag",
+     "output": "clue-3-deep-cave\nclue-3-deep-cave",
+     "exit": 0
+    },
+    {
+     "title": "mv onto an old name",
+     "lang": "bash",
+     "code": "echo \"real map\" > Map\necho \"shopping list\" > list\nmv list Map\nls\ncat Map",
+     "output": "Map\nshopping list",
+     "exit": 0
+    },
+    {
+     "title": "The empty cave",
+     "lang": "bash",
+     "code": "mkdir -p cave/deep\ntouch cave/deep/.gold\ncd cave/deep\necho \"plain ls:\"\nls\necho \"ls -a:\"\nls -a",
+     "output": "plain ls:\nls -a:\n.\n..\n.gold",
+     "exit": 0
+    },
+    {
+     "title": "Look, then remove",
+     "lang": "bash",
+     "code": "mkdir -p camp/rubbish\ntouch camp/.gold camp/fake camp/rubbish/peel\nls -1 camp\nrm camp/fake\nrm camp/rubbish\nrm -r camp/rubbish\necho \"left:\"\nls -a camp",
+     "output": "fake\nrubbish\nrm: cannot remove 'camp/rubbish': Is a directory\nleft:\n.\n..\n.gold",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/linux-beginner-1-files",
+   "position": 1
+  },
+  {
    "id": "linux-beginner-2-text",
    "youtubeId": "WQ0NiljnTBI",
    "series": "linux",
@@ -572,7 +709,7 @@
     }
    ],
    "repo": "https://github.com/callstackclub/videos/tree/main/linux-beginner-2-text",
-   "position": 1
+   "position": 2
   },
   {
    "id": "linux-beginner-3-scripts",
@@ -742,7 +879,7 @@
     }
    ],
    "repo": "https://github.com/callstackclub/videos/tree/main/linux-beginner-3-scripts",
-   "position": 2
+   "position": 3
   },
   {
    "id": "linux-beginner-4-tips",
@@ -982,7 +1119,7 @@
     }
    ],
    "repo": "https://github.com/callstackclub/videos/tree/main/linux-beginner-4-tips",
-   "position": 3
+   "position": 4
   },
   {
    "id": "python-beginner-1-basics",
