@@ -1,0 +1,37 @@
+name: Update app catalog
+
+# Keeps catalog/public.json equal to the videos that are public on the channel.
+on:
+  schedule:
+    - cron: "17 * * * *"
+  push:
+    paths:
+      - "catalog/all.json"
+      - ".github/scripts/publish_catalog.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python .github/scripts/publish_catalog.py
+      - name: Commit if changed
+        run: |
+          if [ -n "$(git status --porcelain catalog/public.json)" ]; then
+            git config user.name "Call Stack Club"
+            git config user.email "359502020+callstackclub@users.noreply.github.com"
+            git add catalog/public.json
+            git commit -m "Update public lessons"
+            git push
+          fi

@@ -1,0 +1,196 @@
+{
+ "schema": 1,
+ "channel": {
+  "handle": "@callstackclub",
+  "url": "https://www.youtube.com/@callstackclub",
+  "subscribe": "https://www.youtube.com/@callstackclub?sub_confirmation=1"
+ },
+ "series": [
+  {
+   "id": "algo",
+   "title": {
+    "en": "Coding Interviews",
+    "ms": "Temu Duga Coding"
+   },
+   "order": 10
+  }
+ ],
+ "lessons": [
+  {
+   "id": "two-sum",
+   "youtubeId": "kRDSkp8Kevo",
+   "series": "algo",
+   "level": "",
+   "episode": 99,
+   "release": "2026-11-25T17:13:48Z",
+   "title": {
+    "en": "Two Sum: From O(n²) to O(n) With One Idea",
+    "ms": "Two Sum: Daripada O(n²) kepada O(n) dengan Satu Idea"
+   },
+   "summary": {
+    "en": "Two Sum is a classic coding interview question. It looks almost too easy.",
+    "ms": "Two Sum ialah soalan klasik dalam temuduga pengaturcaraan. Ia kelihatan hampir terlalu mudah."
+   },
+   "durationSec": 639,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "A classic question",
+     "ms": "Soalan klasik"
+    },
+    {
+     "t": 55,
+     "en": "The problem",
+     "ms": "Masalahnya"
+    },
+    {
+     "t": 122,
+     "en": "Brute force",
+     "ms": "Brute force"
+    },
+    {
+     "t": 245,
+     "en": "The complement trick",
+     "ms": "Helah complement"
+    },
+    {
+     "t": 309,
+     "en": "One-pass hash map",
+     "ms": "Hash map satu laluan"
+    },
+    {
+     "t": 426,
+     "en": "Why it's faster",
+     "ms": "Kenapa ia lebih pantas"
+    },
+    {
+     "t": 531,
+     "en": "Quiz and recap",
+     "ms": "Kuiz dan rumusan"
+    }
+   ],
+   "code": [
+    {
+     "title": "solution.py",
+     "lang": "python",
+     "code": "def two_sum_brute(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]\n    return []\n\n\ndef two_sum(nums, target):\n    seen = {}\n    for i, num in enumerate(nums):\n        need = target - num\n        if need in seen:\n            return [seen[need], i]\n        seen[num] = i\n    return []",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/two-sum",
+   "position": 1
+  },
+  {
+   "id": "longest-substring",
+   "youtubeId": "KYHpJjKupAk",
+   "series": "algo",
+   "level": "",
+   "episode": 99,
+   "release": "2026-11-25T18:04:15Z",
+   "title": {
+    "en": "Sliding Window: Longest Substring Without Repeats",
+    "ms": "Sliding Window: Substring Terpanjang Tanpa Ulangan"
+   },
+   "summary": {
+    "en": "Give me a string, and tell me the longest stretch of it with no repeated letters. Sounds like a warm-up, right? But it's a common interview question, because the obvious answer is slow, and the fast answer hides two small bugs that are easy to make.",
+    "ms": "Berikan saya satu string, dan nyatakan bahagian terpanjangnya yang tiada huruf berulang. Nampak macam soalan pemanas badan, bukan?"
+   },
+   "durationSec": 590,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The question",
+     "ms": "Soalannya"
+    },
+    {
+     "t": 89,
+     "en": "Brute force",
+     "ms": "Brute force"
+    },
+    {
+     "t": 158,
+     "en": "The sliding window idea",
+     "ms": "Idea sliding window"
+    },
+    {
+     "t": 290,
+     "en": "Watch it run",
+     "ms": "Lihat ia berjalan"
+    },
+    {
+     "t": 425,
+     "en": "Why it's O(n), quiz and recap",
+     "ms": "Kenapa O(n), kuiz dan rumusan"
+    }
+   ],
+   "code": [
+    {
+     "title": "solution.py",
+     "lang": "python",
+     "code": "def longest_substring_bruteforce(s: str) -> int:\n    \"\"\"Return length of longest substring without repeating characters using O(n^2) check.\"\"\"\n    n = len(s)\n    best = 0\n    for i in range(n):\n        seen = set()\n        for j in range(i, n):\n            if s[j] in seen:\n                break\n            seen.add(s[j])\n            best = max(best, j - i + 1)\n    return best\n\ndef longest_substring_window(s: str) -> int:\n    \"\"\"Return length of longest substring without repeating characters using sliding window.\"\"\"\n    last = {}\n    left = 0\n    best = 0\n    for right, ch in enumerate(s):\n        if ch in last and last[ch] >= left:\n            left = last[ch] + 1\n        last[ch] = right\n        best = max(best, right - left + 1)\n    return best",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/longest-substring",
+   "position": 2
+  },
+  {
+   "id": "binary-search",
+   "youtubeId": "CaHgM9cU7V8",
+   "series": "algo",
+   "level": "",
+   "episode": 99,
+   "release": "2026-11-27T12:00:37Z",
+   "title": {
+    "en": "Binary Search and Two Common Off-by-One Bugs",
+    "ms": "Binary Search dan Dua Bug Off-by-One yang Biasa"
+   },
+   "summary": {
+    "en": "Binary search is about ten lines of code, and it's surprisingly easy to get wrong. In 2006, Joshua Bloch reported that the binary search in Java's own standard library had a bug that had been sitting there for about nine years.",
+    "ms": "Binary search kira-kira 10 baris kod, dan mudah sangat tersilap. Pada 2006, Joshua Bloch melaporkan bahawa binary search dalam standard library Java mempunyai bug yang telah berada di sana kira-kira 9 tahun."
+   },
+   "durationSec": 625,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Why it's tricky",
+     "ms": "Kenapa ia mengelirukan"
+    },
+    {
+     "t": 86,
+     "en": "The closed interval version",
+     "ms": "Versi closed interval"
+    },
+    {
+     "t": 191,
+     "en": "The rules that keep it correct",
+     "ms": "Peraturan yang mengekalkannya betul"
+    },
+    {
+     "t": 266,
+     "en": "The two classic bugs",
+     "ms": "Dua bug klasik"
+    },
+    {
+     "t": 407,
+     "en": "Half-open, quiz and recap",
+     "ms": "Half-open, kuiz dan rumusan"
+    }
+   ],
+   "code": [
+    {
+     "title": "solution.py",
+     "lang": "python",
+     "code": "def binary_search(a: list[int], target: int) -> int:\n    \"\"\"Closed interval [lo, hi]: return an index of target in sorted a, or -1.\"\"\"\n    lo, hi = 0, len(a) - 1\n    while lo <= hi:\n        mid = lo + (hi - lo) // 2\n        if a[mid] == target:\n            return mid\n        if a[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n\n\ndef search_first(a: list[int], target: int) -> int:\n    \"\"\"Half-open interval [lo, hi): return the FIRST index of target in sorted a, or -1.\"\"\"\n    lo, hi = 0, len(a)\n    while lo < hi:\n        mid = lo + (hi - lo) // 2\n        if a[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid\n    return lo if lo < len(a) and a[lo] == target else -1",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/binary-search",
+   "position": 3
+  }
+ ],
+ "checked": "2026-11-28T07:49:59Z"
+}

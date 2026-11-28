@@ -1,0 +1,1511 @@
+{
+ "schema": 1,
+ "generated": "2026-11-28T07:49:36Z",
+ "channel": {
+  "handle": "@callstackclub",
+  "url": "https://www.youtube.com/@callstackclub",
+  "subscribe": "https://www.youtube.com/@callstackclub?sub_confirmation=1"
+ },
+ "series": [
+  {
+   "id": "python",
+   "title": {
+    "en": "Python",
+    "ms": "Python"
+   },
+   "order": 0
+  },
+  {
+   "id": "algo",
+   "title": {
+    "en": "Coding Interviews",
+    "ms": "Temu Duga Coding"
+   },
+   "order": 10
+  },
+  {
+   "id": "design",
+   "title": {
+    "en": "How It Works",
+    "ms": "Bagaimana Ia Berfungsi"
+   },
+   "order": 11
+  }
+ ],
+ "lessons": [
+  {
+   "id": "two-sum",
+   "youtubeId": "kRDSkp8Kevo",
+   "series": "algo",
+   "level": "",
+   "episode": 99,
+   "release": "2026-11-25T17:13:48Z",
+   "title": {
+    "en": "Two Sum: From O(n²) to O(n) With One Idea",
+    "ms": "Two Sum: Daripada O(n²) kepada O(n) dengan Satu Idea"
+   },
+   "summary": {
+    "en": "Two Sum is a classic coding interview question. It looks almost too easy.",
+    "ms": "Two Sum ialah soalan klasik dalam temuduga pengaturcaraan. Ia kelihatan hampir terlalu mudah."
+   },
+   "durationSec": 639,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "A classic question",
+     "ms": "Soalan klasik"
+    },
+    {
+     "t": 55,
+     "en": "The problem",
+     "ms": "Masalahnya"
+    },
+    {
+     "t": 122,
+     "en": "Brute force",
+     "ms": "Brute force"
+    },
+    {
+     "t": 245,
+     "en": "The complement trick",
+     "ms": "Helah complement"
+    },
+    {
+     "t": 309,
+     "en": "One-pass hash map",
+     "ms": "Hash map satu laluan"
+    },
+    {
+     "t": 426,
+     "en": "Why it's faster",
+     "ms": "Kenapa ia lebih pantas"
+    },
+    {
+     "t": 531,
+     "en": "Quiz and recap",
+     "ms": "Kuiz dan rumusan"
+    }
+   ],
+   "code": [
+    {
+     "title": "solution.py",
+     "lang": "python",
+     "code": "def two_sum_brute(nums, target):\n    for i in range(len(nums)):\n        for j in range(i + 1, len(nums)):\n            if nums[i] + nums[j] == target:\n                return [i, j]\n    return []\n\n\ndef two_sum(nums, target):\n    seen = {}\n    for i, num in enumerate(nums):\n        need = target - num\n        if need in seen:\n            return [seen[need], i]\n        seen[num] = i\n    return []",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/two-sum",
+   "position": 1
+  },
+  {
+   "id": "longest-substring",
+   "youtubeId": "KYHpJjKupAk",
+   "series": "algo",
+   "level": "",
+   "episode": 99,
+   "release": "2026-11-25T18:04:15Z",
+   "title": {
+    "en": "Sliding Window: Longest Substring Without Repeats",
+    "ms": "Sliding Window: Substring Terpanjang Tanpa Ulangan"
+   },
+   "summary": {
+    "en": "Give me a string, and tell me the longest stretch of it with no repeated letters. Sounds like a warm-up, right? But it's a common interview question, because the obvious answer is slow, and the fast answer hides two small bugs that are easy to make.",
+    "ms": "Berikan saya satu string, dan nyatakan bahagian terpanjangnya yang tiada huruf berulang. Nampak macam soalan pemanas badan, bukan?"
+   },
+   "durationSec": 590,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The question",
+     "ms": "Soalannya"
+    },
+    {
+     "t": 89,
+     "en": "Brute force",
+     "ms": "Brute force"
+    },
+    {
+     "t": 158,
+     "en": "The sliding window idea",
+     "ms": "Idea sliding window"
+    },
+    {
+     "t": 290,
+     "en": "Watch it run",
+     "ms": "Lihat ia berjalan"
+    },
+    {
+     "t": 425,
+     "en": "Why it's O(n), quiz and recap",
+     "ms": "Kenapa O(n), kuiz dan rumusan"
+    }
+   ],
+   "code": [
+    {
+     "title": "solution.py",
+     "lang": "python",
+     "code": "def longest_substring_bruteforce(s: str) -> int:\n    \"\"\"Return length of longest substring without repeating characters using O(n^2) check.\"\"\"\n    n = len(s)\n    best = 0\n    for i in range(n):\n        seen = set()\n        for j in range(i, n):\n            if s[j] in seen:\n                break\n            seen.add(s[j])\n            best = max(best, j - i + 1)\n    return best\n\ndef longest_substring_window(s: str) -> int:\n    \"\"\"Return length of longest substring without repeating characters using sliding window.\"\"\"\n    last = {}\n    left = 0\n    best = 0\n    for right, ch in enumerate(s):\n        if ch in last and last[ch] >= left:\n            left = last[ch] + 1\n        last[ch] = right\n        best = max(best, right - left + 1)\n    return best",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/longest-substring",
+   "position": 2
+  },
+  {
+   "id": "binary-search",
+   "youtubeId": "CaHgM9cU7V8",
+   "series": "algo",
+   "level": "",
+   "episode": 99,
+   "release": "2026-11-27T12:00:37Z",
+   "title": {
+    "en": "Binary Search and Two Common Off-by-One Bugs",
+    "ms": "Binary Search dan Dua Bug Off-by-One yang Biasa"
+   },
+   "summary": {
+    "en": "Binary search is about ten lines of code, and it's surprisingly easy to get wrong. In 2006, Joshua Bloch reported that the binary search in Java's own standard library had a bug that had been sitting there for about nine years.",
+    "ms": "Binary search kira-kira 10 baris kod, dan mudah sangat tersilap. Pada 2006, Joshua Bloch melaporkan bahawa binary search dalam standard library Java mempunyai bug yang telah berada di sana kira-kira 9 tahun."
+   },
+   "durationSec": 625,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Why it's tricky",
+     "ms": "Kenapa ia mengelirukan"
+    },
+    {
+     "t": 86,
+     "en": "The closed interval version",
+     "ms": "Versi closed interval"
+    },
+    {
+     "t": 191,
+     "en": "The rules that keep it correct",
+     "ms": "Peraturan yang mengekalkannya betul"
+    },
+    {
+     "t": 266,
+     "en": "The two classic bugs",
+     "ms": "Dua bug klasik"
+    },
+    {
+     "t": 407,
+     "en": "Half-open, quiz and recap",
+     "ms": "Half-open, kuiz dan rumusan"
+    }
+   ],
+   "code": [
+    {
+     "title": "solution.py",
+     "lang": "python",
+     "code": "def binary_search(a: list[int], target: int) -> int:\n    \"\"\"Closed interval [lo, hi]: return an index of target in sorted a, or -1.\"\"\"\n    lo, hi = 0, len(a) - 1\n    while lo <= hi:\n        mid = lo + (hi - lo) // 2\n        if a[mid] == target:\n            return mid\n        if a[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1\n\n\ndef search_first(a: list[int], target: int) -> int:\n    \"\"\"Half-open interval [lo, hi): return the FIRST index of target in sorted a, or -1.\"\"\"\n    lo, hi = 0, len(a)\n    while lo < hi:\n        mid = lo + (hi - lo) // 2\n        if a[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid\n    return lo if lo < len(a) and a[lo] == target else -1",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/binary-search",
+   "position": 3
+  },
+  {
+   "id": "number-of-islands",
+   "youtubeId": "p1UPXvmwOKc",
+   "series": "algo",
+   "level": "",
+   "episode": 99,
+   "release": "2026-12-04T12:00:00Z",
+   "title": {
+    "en": "Number of Islands: BFS vs DFS, Step by Step",
+    "ms": "Number of Islands: BFS lawan DFS, Langkah demi Langkah"
+   },
+   "summary": {
+    "en": "You get a map made of ones and zeros. Ones are land, zeros are water.",
+    "ms": "Anda diberi sebuah peta yang terdiri daripada 1 dan 0. 1 ialah daratan, 0 ialah air."
+   },
+   "durationSec": 665,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "What counts as an island",
+     "ms": "Apa yang dikira sebagai pulau"
+    },
+    {
+     "t": 92,
+     "en": "Scan, then flood",
+     "ms": "Imbas, kemudian banjiri"
+    },
+    {
+     "t": 212,
+     "en": "BFS: rings with a queue",
+     "ms": "BFS: gelang dengan queue"
+    },
+    {
+     "t": 353,
+     "en": "DFS: change one word",
+     "ms": "DFS: tukar satu perkataan"
+    },
+    {
+     "t": 499,
+     "en": "Which one should you use?",
+     "ms": "Mana satu patut anda guna?"
+    }
+   ],
+   "code": [
+    {
+     "title": "solution.py",
+     "lang": "python",
+     "code": "\"\"\"Number of Islands: count groups of \"1\" cells joined up, down, left or right.\n\nOne outer scan finds each new island; a flood fill (BFS, stack DFS or recursive DFS)\nmarks the whole island as seen so it is never counted twice.\n\"\"\"\nfrom collections import deque\n\n\ndef neighbors(grid, r, c):\n    for nr, nc in (r + 1, c), (r - 1, c), (r, c + 1), (r, c - 1):\n        if 0 <= nr < len(grid) and 0 <= nc < len(grid[0]):\n            if grid[nr][nc] == \"1\":\n                yield nr, nc\n\n\ndef bfs(grid, r, c, seen):\n    seen.add((r, c))\n    queue = deque([(r, c)])\n    while queue:\n        cr, cc = queue.popleft()          # oldest cell first: rings\n        for nb in neighbors(grid, cr, cc):\n            if nb not in seen:\n                seen.add(nb)              # mark when it joins the queue\n                queue.append(nb)\n\n\ndef dfs_stack(grid, r, c, seen):\n    seen.add((r, c))\n    stack = [(r, c)]\n    while stack:\n        cr, cc = stack.pop()              # newest cell first: dives deep\n        for nb in neighbors(grid, cr, cc):\n            if nb not in seen:\n                seen.add(nb)\n                stack.append(nb)\n\n\ndef dfs_recursive(grid, r, c, seen):\n    seen.add((r, c))\n    for nb in neighbors(grid, r, c):\n        if nb not in seen:\n            dfs_recursive(grid, *nb, seen)\n\n\ndef count_islands(grid, flood=bfs):\n    if not grid or not grid[0]:\n        return 0\n    seen, islands = set(), 0\n    for r, row in enumerate(grid):\n        for c, cell in enumerate(row):\n            if cell == \"1\" and (r, c) not in seen:\n                islands += 1\n                flood(grid, r, c, seen)\n    return islands",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/number-of-islands",
+   "position": 4
+  },
+  {
+   "id": "https-explained",
+   "youtubeId": "LSgT7QlCIXM",
+   "series": "design",
+   "level": "",
+   "episode": 99,
+   "release": "2026-12-11T12:00:00Z",
+   "title": {
+    "en": "Inside HTTPS: TLS 1.3 Handshake and Trust Chains",
+    "ms": "Di Dalam HTTPS: TLS 1.3 Handshake dan Rantaian Kepercayaan"
+   },
+   "summary": {
+    "en": "Ever wonder why that little padlock, or the icon some browsers now show instead, doesn’t guarantee a trustworthy site? HTTPS does three things: it hides your data, it detects tampering, and it proves you’re talking to the right server. The padlock only tells you the TLS handshake succeeded and the certificate matches the hostname.",
+    "ms": "Pernah terfikir kenapa padlock kecil itu, atau ikon yang kini dipaparkan oleh sesetengah pelayar, tidak menjamin laman yang boleh dipercayai? HTTPS melakukan tiga perkara: ia menyembunyikan data anda, mengesan gangguan, dan membuktikan anda sedang bercakap dengan pelayan yang betul. Padlock hanya memberitahu anda bahawa TLS handshake berjaya dan sijil sepadan dengan nama hos."
+   },
+   "durationSec": 763,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Why HTTPS matters",
+     "ms": "Mengapa HTTPS penting"
+    },
+    {
+     "t": 163,
+     "en": "Certificates and the Chain of Trust",
+     "ms": "Sijil dan rantaian kepercayaan"
+    },
+    {
+     "t": 307,
+     "en": "TLS 1.3 Handshake in One Round‑Trip",
+     "ms": "TLS 1.3 handshake dalam satu round trip"
+    },
+    {
+     "t": 463,
+     "en": "Ephemeral Diffie‑Hellman and forward secrecy",
+     "ms": "Diffie-Hellman sementara dan forward secrecy"
+    },
+    {
+     "t": 598,
+     "en": "From handshake to encrypted HTTP",
+     "ms": "Daripada handshake kepada HTTP yang disulitkan"
+    }
+   ],
+   "code": [
+    {
+     "title": "inspect_tls.py",
+     "lang": "python",
+     "code": "\"\"\"See what a real TLS handshake negotiated, and the certificate chain of trust.\n\n    python inspect_tls.py example.com\n    python inspect_tls.py github.com 443\n\nStandard library only (Python 3.13+). If verification fails on Windows with\n\"unable to get local issuer certificate\", run `pip install certifi` and retry:\nWindows downloads some root certificates on demand, so Python may not see them yet.\n\"\"\"\nimport socket\nimport ssl\nimport sys\nimport tempfile\nfrom datetime import datetime, timezone\n\n\ndef trust_store() -> tuple[ssl.SSLContext, str]:\n    try:\n        import certifi\n        return ssl.create_default_context(cafile=certifi.where()), \"certifi (Mozilla) bundle\"\n    except ImportError:\n        return ssl.create_default_context(), \"operating system store\"\n\n\ndef decode(der: bytes) -> dict:\n    # The stdlib can only parse certificates from a file, so write the DER bytes out as PEM.\n    with tempfile.NamedTemporaryFile(\"w\", suffix=\".pem\", delete=False) as f:\n        f.write(ssl.DER_cert_to_PEM_cert(der))\n    return ssl._ssl._test_decode_cert(f.name)\n\n\ndef field(cert: dict, part: str) -> str:\n    d = dict(x[0] for x in cert.get(part, ()))\n    return d.get(\"commonName\") or d.get(\"organizationName\", \"?\")\n\n\ndef main(host: str, port: int = 443) -> None:\n    ctx, store = trust_store()\n    with socket.create_connection((host, port), timeout=10) as raw:\n        # wrap_socket runs the whole handshake: ClientHello (with SNI = host and key shares),\n        # ServerHello, then the encrypted certificate, CertificateVerify and Finished.\n        with ctx.wrap_socket(raw, server_hostname=host) as tls:\n            cipher, _, bits = tls.cipher()\n            print(f\"Connected to {host}:{port}\")\n            print(f\"  protocol    : {tls.version()}\")\n            print(f\"  cipher      : {cipher} ({bits}-bit AEAD key)\")\n            print(f\"  trust store : {store}\")\n\n            chain = tls.get_verified_chain()\n            print(f\"\\nChain of trust ({len(chain)} certificates, server first):\")\n            for i, der in enumerate(chain):\n                c = decode(der)\n                role = \"server\" if i == 0 else (\"root (trusted)\" if i == len(chain) - 1 else \"intermediate\")\n                print(f\"  [{i}] {role:<15} {field(c, 'subject')}\")\n                print(f\"      signed by       {field(c, 'issuer')}\")\n                print(f\"      valid until     {c['notAfter']}\")\n\n            leaf = tls.getpeercert()\n            expires = datetime.fromtimestamp(ssl.cert_time_to_seconds(leaf[\"notAfter\"]), timezone.utc)\n            names = [v for k, v in leaf.get(\"subjectAltName\", ()) if k == \"DNS\"]\n            print(f\"\\nServer certificate covers: {', '.join(names[:5])}{' ...' if len(names) > 5 else ''}\")\n            print(f\"It expires in {(expires - datetime.now(timezone.utc)).days} days.\")\n\n\nif __name__ == \"__main__\":\n    if len(sys.argv) < 2:\n        sys.exit(__doc__)\n    main(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 443)",
+     "output": "",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/https-explained",
+   "position": 1
+  },
+  {
+   "id": "type-a-url",
+   "youtubeId": "kfNqKqE9a6c",
+   "series": "design",
+   "level": "",
+   "episode": 99,
+   "release": "2026-12-18T12:00:00Z",
+   "title": {
+    "en": "What Really Happens When You Hit Enter on a URL",
+    "ms": "Apa Sebenarnya Berlaku Bila Anda Tekan Enter pada URL"
+   },
+   "summary": {
+    "en": "You type a web address, press Enter, and a page appears. It feels instant, but in that blink your browser makes a decision, asks a chain of servers for an address, sets up an encrypted connection, sends a request that may never reach the real website, and then turns raw text into pixels.",
+    "ms": "Anda menaip alamat web, menekan Enter, dan halaman muncul. Ia terasa serta-merta, tetapi dalam sekelip mata pelayar anda membuat keputusan, bertanya kepada beberapa pelayan tentang satu alamat, menyediakan sambungan yang disulitkan, menghantar permintaan yang mungkin tidak pernah sampai ke laman sebenar, dan kemudian menukar teks mentah menjadi piksel."
+   },
+   "durationSec": 776,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Parsing the Input",
+     "ms": "Menghurai input"
+    },
+    {
+     "t": 124,
+     "en": "Resolving the Hostname",
+     "ms": "Menyelesaikan nama hos"
+    },
+    {
+     "t": 282,
+     "en": "Establishing a Secure Connection",
+     "ms": "Menyediakan sambungan selamat"
+    },
+    {
+     "t": 434,
+     "en": "Sending the HTTP Request",
+     "ms": "Menghantar permintaan HTTP"
+    },
+    {
+     "t": 601,
+     "en": "Rendering the Page",
+     "ms": "Memaparkan halaman"
+    }
+   ],
+   "code": [],
+   "repo": "https://github.com/callstackclub/videos/tree/main/type-a-url",
+   "position": 2
+  },
+  {
+   "id": "scale-to-1m",
+   "youtubeId": "dht9TtQvCHU",
+   "series": "design",
+   "level": "",
+   "episode": 99,
+   "release": "2026-12-25T12:00:00Z",
+   "title": {
+    "en": "Scaling an App From 1 to 1 Million Users, Step by Step",
+    "ms": "Kembangkan Aplikasi Daripada 1 kepada 1 Juta Pengguna, Langkah demi Langkah"
+   },
+   "summary": {
+    "en": "Lots of apps start the same way: one server, doing everything. So what actually changes on the way from your first user to your millionth? There's no magic number of users where you're supposed to add a cache or a second server.",
+    "ms": "Banyak aplikasi bermula dengan cara yang sama: satu server yang membuat semuanya. Jadi, apa yang sebenarnya berubah dari pengguna pertama anda hingga yang kesejuta? Tiada bilangan pengguna ajaib yang menentukan bila anda perlu menambah cache atau server kedua."
+   },
+   "durationSec": 630,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "One box does everything",
+     "ms": "Satu mesin buat semuanya"
+    },
+    {
+     "t": 93,
+     "en": "Split, then scale",
+     "ms": "Pisahkan, kemudian kembangkan"
+    },
+    {
+     "t": 182,
+     "en": "Stateless servers and a load balancer",
+     "ms": "Server stateless dan load balancer"
+    },
+    {
+     "t": 273,
+     "en": "Cache and CDN",
+     "ms": "Cache dan CDN"
+    },
+    {
+     "t": 378,
+     "en": "Replicas, queues and shards",
+     "ms": "Replica, queue dan shard"
+    },
+    {
+     "t": 505,
+     "en": "Measure, then scale",
+     "ms": "Ukur, kemudian scale"
+    }
+   ],
+   "code": [],
+   "repo": "https://github.com/callstackclub/videos/tree/main/scale-to-1m",
+   "position": 3
+  },
+  {
+   "id": "python-beginner-1-basics",
+   "youtubeId": "O2mn8UwfahA",
+   "series": "python",
+   "level": "beginner",
+   "episode": 1,
+   "release": "2027-01-01T12:00:00Z",
+   "title": {
+    "en": "Python for Beginners #1: Variables and Types",
+    "ms": "Python untuk Pemula #1: Variable dan Jenis Data"
+   },
+   "summary": {
+    "en": "Two plus two is four. Unless you ask Python in a slightly different way, and it tells you twenty-two.",
+    "ms": "2 tambah 2 ialah 4. Kecuali jika anda tanya Python dengan cara yang sedikit berbeza, dan ia beritahu anda 22."
+   },
+   "durationSec": 572,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The rules of the game",
+     "ms": "Peraturan permainan"
+    },
+    {
+     "t": 42,
+     "en": "Rounds one and two: names",
+     "ms": "Pusingan 1 dan 2: nama"
+    },
+    {
+     "t": 132,
+     "en": "Rounds three to five: what kind of thing?",
+     "ms": "Pusingan 3 hingga 5: benda jenis apa?"
+    },
+    {
+     "t": 261,
+     "en": "Rounds six and seven: numbers with opinions",
+     "ms": "Pusingan 6 dan 7: nombor yang ada pendirian"
+    },
+    {
+     "t": 368,
+     "en": "Rounds eight and nine: changing type on purpose",
+     "ms": "Pusingan 8 dan 9: menukar jenis dengan sengaja"
+    },
+    {
+     "t": 422,
+     "en": "Round ten: the space that matters",
+     "ms": "Pusingan 10: ruang yang penting"
+    },
+    {
+     "t": 483,
+     "en": "Final score",
+     "ms": "Markah akhir"
+    }
+   ],
+   "code": [
+    {
+     "title": "A name or the text?",
+     "lang": "python",
+     "code": "name = \"Mia\"\nprint(name)\nprint(\"name\")",
+     "output": "Mia\nname",
+     "exit": 0
+    },
+    {
+     "title": "Moving a label",
+     "lang": "python",
+     "code": "score = 8\nbest = score\nscore = 10\nprint(best, score)",
+     "output": "8 10",
+     "exit": 0
+    },
+    {
+     "title": "Ask for the type",
+     "lang": "python",
+     "code": "print(type(\"8\"))\nprint(type(8))\nprint(type(8.0))\nprint(type(8 > 3))",
+     "output": "<class 'str'>\n<class 'int'>\n<class 'float'>\n<class 'bool'>",
+     "exit": 0
+    },
+    {
+     "title": "Two kinds of plus",
+     "lang": "python",
+     "code": "print(\"2\" + \"2\")\nprint(2 + 2)",
+     "output": "22\n4",
+     "exit": 0
+    },
+    {
+     "title": "Text plus number",
+     "lang": "python",
+     "code": "score = 8\nprint(\"Score: \" + score)",
+     "output": "Traceback (most recent call last):\n  File \"/home/mia/demo/main.py\", line 2, in <module>\n    print(\"Score: \" + score)\n          ~~~~~~~~~~^~~~~~~\nTypeError: can only concatenate str (not \"int\") to str",
+     "exit": 1
+    },
+    {
+     "title": "Three ways to write it",
+     "lang": "python",
+     "code": "name = \"Mia\"\nscore = 8\nprint(\"Score: \" + str(score))\nprint(f\"{name} scored {score}\")\nprint(\"{name} scored {score}\")",
+     "output": "Score: 8\nMia scored 8\n{name} scored {score}",
+     "exit": 0
+    },
+    {
+     "title": "Three kinds of division",
+     "lang": "python",
+     "code": "print(12 / 3)\nprint(17 // 5)\nprint(17 % 5)\nprint(17 / 5)",
+     "output": "4.0\n3\n2\n3.4",
+     "exit": 0
+    },
+    {
+     "title": "A famous decimal surprise",
+     "lang": "python",
+     "code": "print(0.1 + 0.2)\nprint(round(0.1 + 0.2, 2))",
+     "output": "0.30000000000000004\n0.3",
+     "exit": 0
+    },
+    {
+     "title": "Text into a number",
+     "lang": "python",
+     "code": "age = int(\"18\")\nprint(age + 1)\nprint(int(3.9))",
+     "output": "19\n3",
+     "exit": 0
+    },
+    {
+     "title": "Not a number",
+     "lang": "python",
+     "code": "text = \"abc\"\nnumber = int(text)\nprint(number)",
+     "output": "Traceback (most recent call last):\n  File \"/home/mia/demo/main.py\", line 2, in <module>\n    number = int(text)\nValueError: invalid literal for int() with base 10: 'abc'",
+     "exit": 1
+    },
+    {
+     "title": "What belongs to the if?",
+     "lang": "python",
+     "code": "age = 16\nif age >= 18:\n    print(\"You can vote.\")\n    print(\"Bring your ID.\")\nprint(\"Done\")",
+     "output": "Done",
+     "exit": 0
+    },
+    {
+     "title": "A missing indent",
+     "lang": "python",
+     "code": "age = 20\nif age >= 18:\nprint(\"You can vote.\")",
+     "output": "File \"/home/mia/demo/main.py\", line 3\n    print(\"You can vote.\")\n    ^^^^^\nIndentationError: expected an indented block after 'if' statement on line 2",
+     "exit": 1
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-beginner-1-basics",
+   "position": 1
+  },
+  {
+   "id": "python-beginner-2-lists-loops",
+   "youtubeId": "6hiO5DmX_58",
+   "series": "python",
+   "level": "beginner",
+   "episode": 2,
+   "release": "2027-01-01T12:00:00Z",
+   "title": {
+    "en": "Python for Beginners #2: Loops and Lists",
+    "ms": "Python untuk Pemula #2: Loop dan List"
+   },
+   "summary": {
+    "en": "The café opens in an hour, and the till is empty. Not empty of money.",
+    "ms": "Kafe akan dibuka dalam sejam, dan mesin juruwangnya kosong. Bukan kosong daripada wang."
+   },
+   "durationSec": 617,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Opening day",
+     "ms": "Hari pembukaan"
+    },
+    {
+     "t": 46,
+     "en": "Version one: remember the order",
+     "ms": "Versi 1: ingat pesanan"
+    },
+    {
+     "t": 132,
+     "en": "Version two: read it back",
+     "ms": "Versi 2: baca semula"
+    },
+    {
+     "t": 185,
+     "en": "Version three: know the prices",
+     "ms": "Versi 3: tahu harganya"
+    },
+    {
+     "t": 249,
+     "en": "Version four: survive the pizza",
+     "ms": "Versi 4: bertahan dengan pizza"
+    },
+    {
+     "t": 305,
+     "en": "Version five: a discount that lies",
+     "ms": "Versi 5: diskaun yang menipu"
+    },
+    {
+     "t": 386,
+     "en": "Versions six and seven: money and slices",
+     "ms": "Versi 6 dan 7: wang dan slice"
+    },
+    {
+     "t": 492,
+     "en": "Doors open",
+     "ms": "Pintu dibuka"
+    }
+   ],
+   "code": [
+    {
+     "title": "Version 1: an order is a list",
+     "lang": "python",
+     "code": "order = [\"tea\", \"cake\"]\norder.append(\"coffee\")\nprint(order[0])\nprint(order[-1])\nprint(len(order))\nprint(\"cake\" in order)",
+     "output": "tea\ncoffee\n3\nTrue",
+     "exit": 0
+    },
+    {
+     "title": "Crash 1: one step too far",
+     "lang": "python",
+     "code": "order = [\"tea\", \"cake\", \"coffee\"]\nprint(order[3])",
+     "output": "Traceback (most recent call last):\n  File \"/home/mia/demo/main.py\", line 2, in <module>\n    print(order[3])\n          ~~~~~^^^\nIndexError: list index out of range",
+     "exit": 1
+    },
+    {
+     "title": "Version 2: print every line",
+     "lang": "python",
+     "code": "order = [\"tea\", \"cake\", \"coffee\"]\nfor item in order:\n    print(\"-\", item)\nfor number in range(3):\n    print(number)",
+     "output": "- tea\n- cake\n- coffee\n0\n1\n2",
+     "exit": 0
+    },
+    {
+     "title": "Version 3: a price list",
+     "lang": "python",
+     "code": "menu = {\"tea\": 2, \"cake\": 4}\nmenu[\"coffee\"] = 3\norder = [\"tea\", \"cake\", \"coffee\"]\ntotal = 0\nfor item in order:\n    total = total + menu[item]\nprint(\"Total:\", total)",
+     "output": "Total: 9",
+     "exit": 0
+    },
+    {
+     "title": "Crash 2: not on the menu",
+     "lang": "python",
+     "code": "menu = {\"tea\": 2, \"cake\": 4}\norder = [\"tea\", \"pizza\"]\nfor item in order:\n    print(item, menu[item])",
+     "output": "tea 2\nTraceback (most recent call last):\n  File \"/home/mia/demo/main.py\", line 4, in <module>\n    print(item, menu[item])\n                ~~~~^^^^^^\nKeyError: 'pizza'",
+     "exit": 1
+    },
+    {
+     "title": "Version 4: sold out",
+     "lang": "python",
+     "code": "menu = {\"tea\": 2, \"cake\": 4}\norder = [\"tea\", \"pizza\"]\nfor item in order:\n    price = menu.get(item)\n    if price is None:\n        print(item, \"- sorry, sold out\")\n    else:\n        print(item, price)",
+     "output": "tea 2\npizza - sorry, sold out",
+     "exit": 0
+    },
+    {
+     "title": "Version 5: a discount",
+     "lang": "python",
+     "code": "total = 9\nif total >= 10:\n    discount = 2\nelif total >= 5:\n    discount = 1\nelse:\n    discount = 0\nprint(\"Pay:\", total - discount)",
+     "output": "Pay: 8",
+     "exit": 0
+    },
+    {
+     "title": "The quiet bug: order matters",
+     "lang": "python",
+     "code": "total = 12\nif total >= 5:\n    discount = 1\nelif total >= 10:\n    discount = 2\nelse:\n    discount = 0\nprint(\"Pay:\", total - discount)",
+     "output": "Pay: 11",
+     "exit": 0
+    },
+    {
+     "title": "Version 6: pay with coins",
+     "lang": "python",
+     "code": "to_pay = 8\npaid = 0\nwhile True:\n    paid = paid + 3\n    print(\"paid so far:\", paid)\n    if paid >= to_pay:\n        break\nprint(\"change:\", paid - to_pay)",
+     "output": "paid so far: 3\npaid so far: 6\npaid so far: 9\nchange: 1",
+     "exit": 0
+    },
+    {
+     "title": "Version 7: slices and tickets",
+     "lang": "python",
+     "code": "order = [\"tea\", \"cake\", \"coffee\"]\nprint(order[0:2])\nticket = \"MIA07\"\nprint(ticket[0:3])\nprint(ticket[-1])\nfor letter in \"MIA\":\n    print(letter)",
+     "output": "['tea', 'cake']\nMIA\n7\nM\nI\nA",
+     "exit": 0
+    },
+    {
+     "title": "The finished till",
+     "lang": "python",
+     "code": "menu = {\"tea\": 2, \"cake\": 4, \"coffee\": 3}\norder = [\"tea\", \"cake\", \"pizza\", \"coffee\"]\ntotal = 0\nfor item in order:\n    price = menu.get(item)\n    if price is None:\n        print(item, \"- sold out\")\n    else:\n        print(item, price)\n        total = total + price\nif total >= 5:\n    total = total - 1\nprint(\"Pay:\", total)\nfor item, price in menu.items():\n    print(\"menu:\", item, price)",
+     "output": "tea 2\ncake 4\npizza - sold out\ncoffee 3\nPay: 8\nmenu: tea 2\nmenu: cake 4\nmenu: coffee 3",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-beginner-2-lists-loops",
+   "position": 2
+  },
+  {
+   "id": "python-beginner-3-functions",
+   "youtubeId": "gP8WcAm88F8",
+   "series": "python",
+   "level": "beginner",
+   "episode": 3,
+   "release": "2027-01-01T12:00:00Z",
+   "title": {
+    "en": "Python for Beginners #3: Functions and Errors",
+    "ms": "Python untuk Pemula #3: Function dan Error"
+   },
+   "summary": {
+    "en": "Last time, our café till worked. Now imagine somebody sends that code to a colleague and asks: is this good enough? Working code and good code aren't the same thing.",
+    "ms": "Kali terakhir, mesin juruwang kafe kita sudah berfungsi. Sekarang bayangkan seseorang menghantar kod itu kepada rakan sekerja dan bertanya: adakah ini cukup baik? Kod yang berfungsi dan kod yang baik bukan perkara yang sama."
+   },
+   "durationSec": 565,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The review request",
+     "ms": "Permintaan semakan"
+    },
+    {
+     "t": 48,
+     "en": "Comment one: you wrote this twice",
+     "ms": "Komen 1: anda tulis ini dua kali"
+    },
+    {
+     "t": 110,
+     "en": "Comment two: print isn't an answer",
+     "ms": "Komen 2: print bukan jawapan"
+    },
+    {
+     "t": 191,
+     "en": "Comment three: make the calls readable",
+     "ms": "Komen 3: jadikan panggilan mudah dibaca"
+    },
+    {
+     "t": 249,
+     "en": "Comment four: that name doesn't exist out here",
+     "ms": "Komen 4: nama itu tidak wujud di luar sini"
+    },
+    {
+     "t": 307,
+     "en": "Comment five: somebody already wrote this",
+     "ms": "Komen 5: seseorang sudah menulis ini"
+    },
+    {
+     "t": 359,
+     "en": "Comment six: the bad input",
+     "ms": "Komen 6: input yang salah"
+    },
+    {
+     "t": 469,
+     "en": "Approved",
+     "ms": "Diluluskan"
+    }
+   ],
+   "code": [
+    {
+     "title": "The till, copied twice",
+     "lang": "python",
+     "code": "menu = {\"tea\": 2, \"cake\": 4}\ntotal_a = 0\nfor item in [\"tea\", \"cake\"]:\n    total_a = total_a + menu.get(item, 0)\ntotal_b = 0\nfor item in [\"cake\", \"cake\"]:\n    total_b = total_b + menu.get(item, 0)\nprint(total_a, total_b)",
+     "output": "6 8",
+     "exit": 0
+    },
+    {
+     "title": "One function, used twice",
+     "lang": "python",
+     "code": "menu = {\"tea\": 2, \"cake\": 4}\n\ndef bill(order):\n    total = 0\n    for item in order:\n        total = total + menu.get(item, 0)\n    return total\n\nprint(bill([\"tea\", \"cake\"]))\nprint(bill([\"cake\", \"cake\"]))",
+     "output": "6\n8",
+     "exit": 0
+    },
+    {
+     "title": "Printing is not returning",
+     "lang": "python",
+     "code": "def bill(prices):\n    print(sum(prices))\n\namount = bill([2, 4])\nprint(\"saved:\", amount)",
+     "output": "6\nsaved: None",
+     "exit": 0
+    },
+    {
+     "title": "Returned, so it can be saved",
+     "lang": "python",
+     "code": "def bill(prices):\n    return sum(prices)\n\namount = bill([2, 4])\nprint(\"saved:\", amount)",
+     "output": "saved: 6",
+     "exit": 0
+    },
+    {
+     "title": "A default value",
+     "lang": "python",
+     "code": "def bill(prices, tip=0):\n    return sum(prices) + tip\n\nprint(bill([2, 4]))\nprint(bill([2, 4], 1))\nprint(bill([2, 4], tip=2))",
+     "output": "6\n7\n8",
+     "exit": 0
+    },
+    {
+     "title": "Name your arguments",
+     "lang": "python",
+     "code": "def label(item, price, hot):\n    return f\"{item} {price} hot={hot}\"\n\nprint(label(\"tea\", 2, True))\nprint(label(hot=False, price=4, item=\"cake\"))",
+     "output": "tea 2 hot=True\ncake 4 hot=False",
+     "exit": 0
+    },
+    {
+     "title": "A variable that stays inside",
+     "lang": "python",
+     "code": "def bill(prices):\n    total = sum(prices)\n    return total\n\nprint(bill([2, 4]))\nprint(total)",
+     "output": "6\nTraceback (most recent call last):\n  File \"/home/mia/demo/main.py\", line 6, in <module>\n    print(total)\n          ^^^^^\nNameError: name 'total' is not defined",
+     "exit": 1
+    },
+    {
+     "title": "Borrow from the library",
+     "lang": "python",
+     "code": "import math\nfrom statistics import mean\n\nbills = [6, 8, 10]\nprint(mean(bills))\nprint(math.ceil(6.2))",
+     "output": "8\n7",
+     "exit": 0
+    },
+    {
+     "title": "A customer types a word",
+     "lang": "python",
+     "code": "coins = int(\"three\")\nprint(\"thanks for\", coins)",
+     "output": "Traceback (most recent call last):\n  File \"/home/mia/demo/main.py\", line 1, in <module>\n    coins = int(\"three\")\nValueError: invalid literal for int() with base 10: 'three'",
+     "exit": 1
+    },
+    {
+     "title": "Catch the error you expect",
+     "lang": "python",
+     "code": "def read_coins(text):\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n\nprint(read_coins(\"5\"))\nprint(read_coins(\"three\"))",
+     "output": "5\n0",
+     "exit": 0
+    },
+    {
+     "title": "A net that catches too much",
+     "lang": "python",
+     "code": "def read_coins(text):\n    try:\n        return int(txet)\n    except:\n        return 0\n\nprint(read_coins(\"5\"))",
+     "output": "0",
+     "exit": 0
+    },
+    {
+     "title": "else and finally",
+     "lang": "python",
+     "code": "def pay(text):\n    try:\n        coins = int(text)\n    except ValueError:\n        print(\"please type a number\")\n    else:\n        print(\"thanks for\", coins)\n    finally:\n        print(\"next customer\")\n\npay(\"5\")\npay(\"three\")",
+     "output": "thanks for 5\nnext customer\nplease type a number\nnext customer",
+     "exit": 0
+    },
+    {
+     "title": "The reviewed till",
+     "lang": "python",
+     "code": "menu = {\"tea\": 2, \"cake\": 4}\n\ndef bill(order, discount=0):\n    total = 0\n    for item in order:\n        total = total + menu.get(item, 0)\n    return total - discount\n\ndef read_coins(text):\n    try:\n        return int(text)\n    except ValueError:\n        return 0\n\ndue = bill([\"tea\", \"cake\"], discount=1)\npaid = read_coins(\"10\")\nprint(f\"due {due}, change {paid - due}\")",
+     "output": "due 5, change 5",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-beginner-3-functions",
+   "position": 3
+  },
+  {
+   "id": "python-beginner-4-tips",
+   "youtubeId": "mi_K8q-elZQ",
+   "series": "python",
+   "level": "beginner",
+   "episode": 4,
+   "release": "2027-01-01T12:00:00Z",
+   "title": {
+    "en": "Python for Beginners #4: 10 Tips and Tricks",
+    "ms": "Python untuk Pemula #4: 10 Tips dan Petua"
+   },
+   "summary": {
+    "en": "In the left corner, code that works and takes six lines. In the right corner, code that works and takes three.",
+    "ms": "Di penjuru kiri, kod yang berfungsi dan mengambil 6 baris. Di penjuru kanan, kod yang berfungsi dan mengambil 3 baris."
+   },
+   "durationSec": 599,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Ring the bell",
+     "ms": "Loceng berbunyi"
+    },
+    {
+     "t": 43,
+     "en": "Rounds 1 to 3: loops",
+     "ms": "Pusingan 1 hingga 3: loop"
+    },
+    {
+     "t": 133,
+     "en": "Rounds 4 to 6: moving things around",
+     "ms": "Pusingan 4 hingga 6: mengalihkan benda"
+    },
+    {
+     "t": 286,
+     "en": "Rounds 7 and 8: answers about a whole list",
+     "ms": "Pusingan 7 dan 8: jawapan tentang seluruh list"
+    },
+    {
+     "t": 384,
+     "en": "Rounds 9 and 10: text",
+     "ms": "Pusingan 9 dan 10: teks"
+    },
+    {
+     "t": 504,
+     "en": "The scorecard",
+     "ms": "Kad markah"
+    }
+   ],
+   "code": [
+    {
+     "title": "The long way",
+     "lang": "python",
+     "code": "numbers = [1, 2, 3, 4]\nevens = []\nfor n in numbers:\n    if n % 2 == 0:\n        evens.append(n)\nprint(evens)",
+     "output": "[2, 4]",
+     "exit": 0
+    },
+    {
+     "title": "The Python way",
+     "lang": "python",
+     "code": "numbers = [1, 2, 3, 4]\nevens = [n for n in numbers if n % 2 == 0]\nprint(evens)",
+     "output": "[2, 4]",
+     "exit": 0
+    },
+    {
+     "title": "Counting by hand",
+     "lang": "python",
+     "code": "names = [\"Ana\", \"Ben\", \"Cy\"]\nplace = 1\nfor name in names:\n    print(place, name)\n    place = place + 1",
+     "output": "1 Ana\n2 Ben\n3 Cy",
+     "exit": 0
+    },
+    {
+     "title": "enumerate",
+     "lang": "python",
+     "code": "names = [\"Ana\", \"Ben\", \"Cy\"]\nfor place, name in enumerate(names, start=1):\n    print(place, name)",
+     "output": "1 Ana\n2 Ben\n3 Cy",
+     "exit": 0
+    },
+    {
+     "title": "zip",
+     "lang": "python",
+     "code": "names = [\"Ana\", \"Ben\", \"Cy\"]\nscores = [90, 75]\nfor name, score in zip(names, scores):\n    print(name, score)",
+     "output": "Ana 90\nBen 75",
+     "exit": 0
+    },
+    {
+     "title": "A third box",
+     "lang": "python",
+     "code": "a = 1\nb = 2\ntemp = a\na = b\nb = temp\nprint(a, b)",
+     "output": "2 1",
+     "exit": 0
+    },
+    {
+     "title": "One line",
+     "lang": "python",
+     "code": "a, b = 1, 2\na, b = b, a\nprint(a, b)",
+     "output": "2 1",
+     "exit": 0
+    },
+    {
+     "title": "Take the first, keep the rest",
+     "lang": "python",
+     "code": "first, *rest = [10, 20, 30]\nprint(first)\nprint(rest)",
+     "output": "10\n[20, 30]",
+     "exit": 0
+    },
+    {
+     "title": "Sort your way",
+     "lang": "python",
+     "code": "words = [\"banana\", \"fig\", \"apple\"]\nprint(sorted(words))\nprint(sorted(words, key=len))\nprint(sorted(words, key=len, reverse=True))\nprint(words)",
+     "output": "['apple', 'banana', 'fig']\n['fig', 'apple', 'banana']\n['banana', 'apple', 'fig']\n['banana', 'fig', 'apple']",
+     "exit": 0
+    },
+    {
+     "title": "split and join",
+     "lang": "python",
+     "code": "line = \"milk,bread,eggs\"\nitems = line.split(\",\")\nprint(items)\nprint(\" + \".join(items))",
+     "output": "['milk', 'bread', 'eggs']\nmilk + bread + eggs",
+     "exit": 0
+    },
+    {
+     "title": "any, all and sum",
+     "lang": "python",
+     "code": "scores = [55, 80, 92]\nprint(sum(scores))\nprint(any(s > 90 for s in scores))\nprint(all(s >= 60 for s in scores))",
+     "output": "227\nTrue\nFalse",
+     "exit": 0
+    },
+    {
+     "title": "Count with get",
+     "lang": "python",
+     "code": "fruits = [\"fig\", \"kiwi\", \"fig\"]\ncounts = {}\nfor f in fruits:\n    counts[f] = counts.get(f, 0) + 1\nprint(counts[\"fig\"])",
+     "output": "2",
+     "exit": 0
+    },
+    {
+     "title": "Count with Counter",
+     "lang": "python",
+     "code": "from collections import Counter\n\nfruits = [\"fig\", \"kiwi\", \"fig\"]\ncounts = Counter(fruits)\nprint(counts[\"fig\"])\nprint(counts[\"plum\"])",
+     "output": "2\n0",
+     "exit": 0
+    },
+    {
+     "title": "f-string formatting",
+     "lang": "python",
+     "code": "price = 3.14159\nname = \"tea\"\nprint(f\"{price:.2f}\")\nprint(f\"[{name:>6}]\")\nprint(f\"{name=}\")",
+     "output": "3.14\n[   tea]\nname='tea'",
+     "exit": 0
+    },
+    {
+     "title": "Slicing",
+     "lang": "python",
+     "code": "word = \"stressed\"\nprint(word[::-1])\nprint(word[:3])\nprint(word[-3:])",
+     "output": "desserts\nstr\nsed",
+     "exit": 0
+    },
+    {
+     "title": "with open",
+     "lang": "python",
+     "code": "with open(\"list.txt\", \"w\") as f:\n    f.write(\"milk\\nbread\\n\")\nwith open(\"list.txt\") as f:\n    for line in f:\n        print(line.strip())\nprint(f.closed)",
+     "output": "milk\nbread\nTrue",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-beginner-4-tips",
+   "position": 4
+  },
+  {
+   "id": "python-mutable-defaults",
+   "youtubeId": "iRSUU8Vwl_0",
+   "series": "python",
+   "level": "intermediate",
+   "episode": 99,
+   "release": "2027-01-08T12:00:00Z",
+   "title": {
+    "en": "Python names, objects and the mutable default trap",
+    "ms": "Nama, object dan perangkap mutable default dalam Python"
+   },
+   "summary": {
+    "en": "The report says one thing: a brand new customer opened a shopping basket, and somebody else's bananas were already in it. Nothing crashed.",
+    "ms": "Laporan itu hanya menyatakan satu perkara: seorang pelanggan baharu membuka bakul beli-belah, dan pisang milik orang lain sudah ada di dalamnya. Tiada apa yang crash."
+   },
+   "durationSec": 539,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The call comes in",
+     "ms": "Laporan diterima"
+    },
+    {
+     "t": 71,
+     "en": "Clue one: names are labels",
+     "ms": "Petunjuk pertama: nama ialah label"
+    },
+    {
+     "t": 144,
+     "en": "Clue three: when does the default happen?",
+     "ms": "Petunjuk ketiga: bila default itu dibuat?"
+    },
+    {
+     "t": 249,
+     "en": "The arrest",
+     "ms": "Tangkapan"
+    },
+    {
+     "t": 330,
+     "en": "A second victim: copies",
+     "ms": "Mangsa kedua: salinan"
+    },
+    {
+     "t": 449,
+     "en": "Case closed",
+     "ms": "Kes ditutup"
+    }
+   ],
+   "code": [
+    {
+     "title": "Assignment binds another name",
+     "lang": "python",
+     "code": "a = [1]\nb = a\nb.append(2)\nprint(a)\nprint(a is b)",
+     "output": "[1, 2]\nTrue",
+     "exit": 0
+    },
+    {
+     "title": "Identity is not equality",
+     "lang": "python",
+     "code": "a = [1, 2]\nb = [1, 2]\nprint(a == b)\nprint(a is b)",
+     "output": "True\nFalse",
+     "exit": 0
+    },
+    {
+     "title": "Defaults are evaluated once",
+     "lang": "python",
+     "code": "def make_default():\n    print(\"default evaluated\")\n    return []\n\ndef get_default(value=make_default()):\n    return value\n\nprint(\"definition finished\")\nprint(get_default())\nprint(get_default())",
+     "output": "default evaluated\ndefinition finished\n[]\n[]",
+     "exit": 0
+    },
+    {
+     "title": "The mutable default trap",
+     "lang": "python",
+     "code": "def add(item, items=[]):\n    items.append(item)\n    return items\n\nprint(add(\"a\"))\nprint(add(\"b\"))",
+     "output": "['a']\n['a', 'b']",
+     "exit": 0
+    },
+    {
+     "title": "Fix the default with None",
+     "lang": "python",
+     "code": "def add(item, items=None):\n    if items is None:\n        items = []\n    items.append(item)\n    return items\n\nprint(add(\"a\"))\nprint(add(\"b\"))",
+     "output": "['a']\n['b']",
+     "exit": 0
+    },
+    {
+     "title": "A shallow copy shares nested lists",
+     "lang": "python",
+     "code": "import copy\n\na = [[1]]\nb = copy.copy(a)\nb[0].append(2)\nprint(a)\nprint(a is b)\nprint(a[0] is b[0])",
+     "output": "[[1, 2]]\nFalse\nTrue",
+     "exit": 0
+    },
+    {
+     "title": "A deep copy copies nested lists",
+     "lang": "python",
+     "code": "import copy\n\na = [[1]]\nb = copy.deepcopy(a)\nb[0].append(2)\nprint(a)\nprint(b)\nprint(a[0] is b[0])",
+     "output": "[[1]]\n[[1, 2]]\nFalse",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-mutable-defaults",
+   "position": 5
+  },
+  {
+   "id": "python-generators",
+   "youtubeId": "V1Zi-sPQ4sY",
+   "series": "python",
+   "level": "intermediate",
+   "episode": 99,
+   "release": "2027-01-15T12:00:00Z",
+   "title": {
+    "en": "Python generators: lazy values with yield",
+    "ms": "Generator Python: nilai malas dengan yield"
+   },
+   "summary": {
+    "en": "Here's a function you can call without running it. Not one line of it.",
+    "ms": "Ini satu function yang boleh anda panggil tanpa menjalankannya. Tidak satu baris pun."
+   },
+   "durationSec": 566,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Opening the notebook",
+     "ms": "Membuka buku nota"
+    },
+    {
+     "t": 46,
+     "en": "Experiments 1 and 2: the sleeping function",
+     "ms": "Eksperimen 1 dan 2: function yang tidur"
+    },
+    {
+     "t": 135,
+     "en": "Experiments 3 and 4: the end of the road",
+     "ms": "Eksperimen 3 dan 4: hujung jalan"
+    },
+    {
+     "t": 222,
+     "en": "Experiments 5 and 6: short form, single use",
+     "ms": "Eksperimen 5 dan 6: bentuk ringkas, sekali guna"
+    },
+    {
+     "t": 324,
+     "en": "Experiment 7: endless on purpose",
+     "ms": "Eksperimen 7: tanpa penghujung dengan sengaja"
+    },
+    {
+     "t": 412,
+     "en": "Field tests",
+     "ms": "Ujian lapangan"
+    },
+    {
+     "t": 473,
+     "en": "Conclusions",
+     "ms": "Kesimpulan"
+    }
+   ],
+   "code": [
+    {
+     "title": "Generator bodies start lazily",
+     "lang": "python",
+     "code": "events = []\ndef gen():\n    events.append('body ran')\n    yield 1\ng = gen()\nprint('after call:', type(g).__name__, events)\nprint('first next:', next(g))\nprint('after next:', events)",
+     "output": "after call: generator []\nfirst next: 1\nafter next: ['body ran']",
+     "exit": 0
+    },
+    {
+     "title": "yield pauses and preserves locals",
+     "lang": "python",
+     "code": "log = []\ndef gen():\n    n = 10\n    log.append('at first yield')\n    yield n\n    log.append('resumed')\n    n += 5\n    yield n\ng = gen()\nprint(next(g), log)\nprint(next(g), log)",
+     "output": "10 ['at first yield']\n15 ['at first yield', 'resumed']",
+     "exit": 0
+    },
+    {
+     "title": "Exhaustion raises StopIteration",
+     "lang": "python",
+     "code": "def one():\n    yield 'only'\ng = one()\nprint(next(g))\ntry:\n    next(g)\nexcept StopIteration:\n    print('StopIteration: generator finished')",
+     "output": "only\nStopIteration: generator finished",
+     "exit": 0
+    },
+    {
+     "title": "for handles generator exhaustion",
+     "lang": "python",
+     "code": "def letters():\n    yield 'a'\n    yield 'b'\nfor letter in letters():\n    print(letter)\nprint('loop finished normally')",
+     "output": "a\nb\nloop finished normally",
+     "exit": 0
+    },
+    {
+     "title": "Generator expression syntax",
+     "lang": "python",
+     "code": "squares = (n * n for n in range(4))\nprint(type(squares).__name__)\nprint(list(squares))",
+     "output": "generator\n[0, 1, 4, 9]",
+     "exit": 0
+    },
+    {
+     "title": "Generators can be consumed only once",
+     "lang": "python",
+     "code": "squares = (n * n for n in range(3))\nprint('first pass:', list(squares))\nprint('second pass:', list(squares))",
+     "output": "first pass: [0, 1, 4]\nsecond pass: []",
+     "exit": 0
+    },
+    {
+     "title": "Slice an infinite generator",
+     "lang": "python",
+     "code": "from itertools import islice\ndef naturals():\n    n = 1\n    while True:\n        yield n\n        n += 1\nprint(list(islice(naturals(), 5)))",
+     "output": "[1, 2, 3, 4, 5]",
+     "exit": 0
+    },
+    {
+     "title": "Delegate with yield from",
+     "lang": "python",
+     "code": "def inner():\n    yield 1\n    yield 2\ndef outer():\n    yield 0\n    yield from inner()\n    yield 3\nprint(list(outer()))",
+     "output": "[0, 1, 2, 3]",
+     "exit": 0
+    },
+    {
+     "title": "Stop early, skip the work",
+     "lang": "python",
+     "code": "def prices():\n    for p in [2, 45, 12]:\n        print(\"made\", p)\n        yield p\n\nfor p in prices():\n    if p > 40:\n        print(\"found\", p)\n        break",
+     "output": "made 2\nmade 45\nfound 45",
+     "exit": 0
+    },
+    {
+     "title": "Generators in a chain",
+     "lang": "python",
+     "code": "lines = [\"tea 2\", \"\", \"cake 4\"]\nfull = (x for x in lines if x)\nprices = (int(x.split()[1]) for x in full)\nprint(sum(prices))",
+     "output": "6",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-generators",
+   "position": 6
+  },
+  {
+   "id": "python-decorators",
+   "youtubeId": "12x2Ku8-syE",
+   "series": "python",
+   "level": "intermediate",
+   "episode": 99,
+   "release": "2027-01-22T12:00:00Z",
+   "title": {
+    "en": "Python decorators, built step by step",
+    "ms": "Decorator Python, dibina langkah demi langkah"
+   },
+   "summary": {
+    "en": "Interviewers like one little symbol, the at sign above a function, because it shows very quickly whether you understand functions or only use them. So let's do it as an interview.",
+    "ms": "Penemu duga suka satu simbol kecil, tanda at di atas sesebuah function, kerana ia cepat menunjukkan sama ada anda faham function atau sekadar menggunakannya. Jadi jom buat sebagai temu duga."
+   },
+   "durationSec": 572,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "The warm-up question",
+     "ms": "Soalan pemanas badan"
+    },
+    {
+     "t": 81,
+     "en": "Question two: do it by hand",
+     "ms": "Soalan kedua: buat secara manual"
+    },
+    {
+     "t": 145,
+     "en": "Question three: what does @ add?",
+     "ms": "Soalan ketiga: apa yang ditambah oleh @?"
+    },
+    {
+     "t": 195,
+     "en": "Question four: any function at all",
+     "ms": "Soalan keempat: sebarang function"
+    },
+    {
+     "t": 249,
+     "en": "Question five: who are you?",
+     "ms": "Soalan kelima: siapa anda?"
+    },
+    {
+     "t": 307,
+     "en": "A practical break",
+     "ms": "Rehat praktikal"
+    },
+    {
+     "t": 370,
+     "en": "Question six: brackets",
+     "ms": "Soalan keenam: kurungan"
+    },
+    {
+     "t": 454,
+     "en": "Question seven: the one people get backwards",
+     "ms": "Soalan ketujuh: yang selalu orang jawab terbalik"
+    }
+   ],
+   "code": [
+    {
+     "title": "Passing and returning functions",
+     "lang": "python",
+     "code": "def shout(text):\n    return text.upper()\n\ndef call(fn, value):\n    return fn(value)\n\ndef make_adder(n):\n    def add(x):\n        return x + n\n    return add\n\nprint(call(shout, 'hi'))\nadd_five = make_adder(5)\nprint(add_five(3))",
+     "output": "HI\n8",
+     "exit": 0
+    },
+    {
+     "title": "A decorator written by hand",
+     "lang": "python",
+     "code": "def exclaim(fn):\n    def wrapper():\n        return fn() + '!'\n    return wrapper\n\ndef greet():\n    return 'hello'\n\ngreet = exclaim(greet)\nprint(greet())",
+     "output": "hello!",
+     "exit": 0
+    },
+    {
+     "title": "The @ syntax",
+     "lang": "python",
+     "code": "def exclaim(fn):\n    def wrapper():\n        return fn() + '!'\n    return wrapper\n\n@exclaim\ndef greet():\n    return 'hello'\n\nprint(greet())",
+     "output": "hello!",
+     "exit": 0
+    },
+    {
+     "title": "Forwarding any arguments",
+     "lang": "python",
+     "code": "def log_call(fn):\n    def wrapper(*args, **kwargs):\n        print('calling')\n        return fn(*args, **kwargs)\n    return wrapper\n\n@log_call\ndef add(a, b=0):\n    return a + b\n\nprint(add(2, b=3))",
+     "output": "calling\n5",
+     "exit": 0
+    },
+    {
+     "title": "Losing __name__ without wraps",
+     "lang": "python",
+     "code": "def decorate(fn):\n    def wrapper():\n        return fn()\n    return wrapper\n\n@decorate\ndef greet():\n    return 'hi'\n\nprint(greet.__name__)",
+     "output": "wrapper",
+     "exit": 0
+    },
+    {
+     "title": "Restoring metadata with wraps",
+     "lang": "python",
+     "code": "from functools import wraps\n\ndef decorate(fn):\n    @wraps(fn)\n    def wrapper(*args, **kwargs):\n        return fn(*args, **kwargs)\n    return wrapper\n\n@decorate\ndef greet():\n    '''Say hello.'''\n    return 'hi'\n\nprint(greet.__name__)\nprint(greet.__doc__)",
+     "output": "greet\nSay hello.",
+     "exit": 0
+    },
+    {
+     "title": "A decorator with an argument",
+     "lang": "python",
+     "code": "def repeat(times):\n    def decorator(fn):\n        def wrapper():\n            return fn() * times\n        return wrapper\n    return decorator\n\n@repeat(3)\ndef laugh():\n    return 'ha'\n\nprint(laugh())",
+     "output": "hahaha",
+     "exit": 0
+    },
+    {
+     "title": "Stacked decorator order",
+     "lang": "python",
+     "code": "def make(tag):\n    def decorator(fn):\n        print(f'apply {tag}')\n        def wrapper():\n            print(f'enter {tag}')\n            fn()\n            print(f'exit {tag}')\n        return wrapper\n    return decorator\n\n@make('top')\n@make('bottom')\ndef job():\n    print('job')\n\njob()",
+     "output": "apply bottom\napply top\nenter top\nenter bottom\njob\nexit bottom\nexit top",
+     "exit": 0
+    },
+    {
+     "title": "A decorator with a memory",
+     "lang": "python",
+     "code": "def count(fn):\n    calls = 0\n    def wrapper(*args):\n        nonlocal calls\n        calls += 1\n        print(\"call\", calls)\n        return fn(*args)\n    return wrapper\n\n@count\ndef add(a, b):\n    return a + b\n\nadd(1, 2)\nprint(add(3, 4))",
+     "output": "call 1\ncall 2\n7",
+     "exit": 0
+    },
+    {
+     "title": "A ready-made one: cache",
+     "lang": "python",
+     "code": "from functools import cache\n\n@cache\ndef square(n):\n    print(\"working\")\n    return n * n\n\nprint(square(4))\nprint(square(4))",
+     "output": "working\n16\n16",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-decorators",
+   "position": 7
+  },
+  {
+   "id": "python-context-managers",
+   "youtubeId": "1me1IpYW7zQ",
+   "series": "python",
+   "level": "intermediate",
+   "episode": 99,
+   "release": "2027-01-29T12:00:00Z",
+   "title": {
+    "en": "Python context managers: what with really does",
+    "ms": "Context manager Python: apa yang sebenarnya dibuat oleh with"
+   },
+   "summary": {
+    "en": "Everybody writes with open, and nearly everybody can tell you what it's for: it closes the file. Ask how, and the answers start to drift.",
+    "ms": "Semua orang menulis with open, dan hampir semua orang boleh beritahu anda kegunaannya: ia menutup fail. Tanya bagaimana, dan jawapannya mula tersasar."
+   },
+   "durationSec": 569,
+   "chapters": [
+    {
+     "t": 0,
+     "en": "Six claims on the table",
+     "ms": "Enam dakwaan di atas meja"
+    },
+    {
+     "t": 46,
+     "en": "Claim 1: it only works on files",
+     "ms": "Dakwaan 1: ia hanya berfungsi pada fail"
+    },
+    {
+     "t": 105,
+     "en": "Claims 2 and 3: when the block fails",
+     "ms": "Dakwaan 2 dan 3: apabila block gagal"
+    },
+    {
+     "t": 249,
+     "en": "Claim 4: you have to write a class",
+     "ms": "Dakwaan 4: anda perlu menulis class"
+    },
+    {
+     "t": 305,
+     "en": "Claim 5: the trap",
+     "ms": "Dakwaan 5: perangkapnya"
+    },
+    {
+     "t": 361,
+     "en": "Claim 6: the closing order",
+     "ms": "Dakwaan 6: susunan penutupan"
+    },
+    {
+     "t": 418,
+     "en": "After the trial: two you can use today",
+     "ms": "Selepas perbicaraan: dua yang boleh anda guna hari ini"
+    },
+    {
+     "t": 476,
+     "en": "The verdicts",
+     "ms": "Keputusan"
+    }
+   ],
+   "code": [
+    {
+     "title": "__enter__ and __exit__ on a normal block",
+     "lang": "python",
+     "code": "class Door:\n    def __enter__(self):\n        print(\"open\")\n    def __exit__(self, *exc):\n        print(\"close\")\n\nwith Door():\n    print(\"inside\")",
+     "output": "open\ninside\nclose",
+     "exit": 0
+    },
+    {
+     "title": "__exit__ runs when the block raises",
+     "lang": "python",
+     "code": "class Door:\n    def __enter__(self):\n        print(\"open\")\n    def __exit__(self, *exc):\n        print(\"close\")\ntry:\n    with Door():\n        raise ValueError(\"bad milk\")\nexcept ValueError as error:\n    print(\"caught:\", error)",
+     "output": "open\nclose\ncaught: bad milk",
+     "exit": 0
+    },
+    {
+     "title": "__exit__ receives the exception",
+     "lang": "python",
+     "code": "class Door:\n    def __enter__(self):\n        return self\n    def __exit__(self, kind, error, tb):\n        print(kind.__name__, error)\ntry:\n    with Door():\n        raise ValueError(\"bad milk\")\nexcept ValueError:\n    print(\"not suppressed\")",
+     "output": "ValueError bad milk\nnot suppressed",
+     "exit": 0
+    },
+    {
+     "title": "Returning True suppresses the exception",
+     "lang": "python",
+     "code": "class Door:\n    def __enter__(self):\n        return self\n    def __exit__(self, kind, error, tb):\n        print(\"exit saw:\", kind.__name__)\n        return True\n\nwith Door():\n    raise ValueError(\"bad milk\")\nprint(\"program continues\")",
+     "output": "exit saw: ValueError\nprogram continues",
+     "exit": 0
+    },
+    {
+     "title": "Write a manager with @contextmanager",
+     "lang": "python",
+     "code": "from contextlib import contextmanager\n\n@contextmanager\ndef shopping():\n    print(\"take list\")\n    yield [\"milk\", \"bread\"]\n    print(\"put list away\")\n\nwith shopping() as items:\n    print(items)",
+     "output": "take list\n['milk', 'bread']\nput list away",
+     "exit": 0
+    },
+    {
+     "title": "Use try/finally around yield",
+     "lang": "python",
+     "code": "from contextlib import contextmanager\n\n@contextmanager\ndef shopping():\n    print(\"take list\")\n    try:\n        yield [\"milk\", \"bread\"]\n    finally:\n        print(\"put list away\")\n\ntry:\n    with shopping():\n        raise ValueError(\"bad milk\")\nexcept ValueError as error:\n    print(\"caught:\", error)",
+     "output": "take list\nput list away\ncaught: bad milk",
+     "exit": 0
+    },
+    {
+     "title": "Two managers exit in reverse order",
+     "lang": "python",
+     "code": "from contextlib import contextmanager\n\n@contextmanager\ndef bag(name):\n    print(\"open\", name)\n    yield\n    print(\"close\", name)\n\nwith bag(\"A\"), bag(\"B\"):\n    print(\"pack groceries\")",
+     "output": "open A\nopen B\npack groceries\nclose B\nclose A",
+     "exit": 0
+    },
+    {
+     "title": "Change a setting, then put it back",
+     "lang": "python",
+     "code": "from contextlib import contextmanager\n\nsettings = {\"lang\": \"en\"}\n\n@contextmanager\ndef language(new):\n    old = settings[\"lang\"]\n    settings[\"lang\"] = new\n    try:\n        yield\n    finally:\n        settings[\"lang\"] = old\n\nwith language(\"ms\"):\n    print(settings[\"lang\"])\nprint(settings[\"lang\"])",
+     "output": "ms\nen",
+     "exit": 0
+    },
+    {
+     "title": "A ready-made one: suppress",
+     "lang": "python",
+     "code": "from contextlib import suppress\n\nwith suppress(ValueError):\n    int(\"abc\")\n    print(\"never printed\")\nprint(\"carried on\")",
+     "output": "carried on",
+     "exit": 0
+    }
+   ],
+   "repo": "https://github.com/callstackclub/videos/tree/main/python-context-managers",
+   "position": 8
+  }
+ ]
+}
